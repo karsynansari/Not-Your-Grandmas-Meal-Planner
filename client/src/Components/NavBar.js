@@ -1,7 +1,6 @@
 import React from 'react'
 
 function NavBar({onLogout, user}) {
-  console.log(user)
    function handleLogout() {
      fetch("/logout", {
        method: "DELETE",

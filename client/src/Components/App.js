@@ -4,7 +4,7 @@ import Homepage from "./Homepage";
 import '../App.css';
 
 function App() {
-  const [user, setUser] = useState(null); 
+const [user, setUser] = useState(null); 
 console.log(user)
   useEffect(() => {
     fetch("/me").then((response) => {

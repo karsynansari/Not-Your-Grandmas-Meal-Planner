@@ -1,11 +1,14 @@
 import React from 'react'
+import Login from './Login';
 
 
-function WelcomePage() {
+function WelcomePage({onLogin}) {
   return (
+    <>
     
       <div>WelcomePage</div>
-
+      <Login onLogin={onLogin}/>
+    </>
   );
 }
 

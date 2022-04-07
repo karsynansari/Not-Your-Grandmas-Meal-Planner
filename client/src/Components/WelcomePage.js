@@ -1,6 +1,6 @@
 import React from 'react'
 import Login from './Login';
-
+import SignUp from './SignUp'
 
 function WelcomePage({onLogin}) {
   return (
@@ -8,6 +8,7 @@ function WelcomePage({onLogin}) {
     
       <div>WelcomePage</div>
       <Login onLogin={onLogin}/>
+      <SignUp onLogin={onLogin}/>
     </>
   );
 }

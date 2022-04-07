@@ -10,10 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_06_170126) do
+ActiveRecord::Schema.define(version: 2022_04_07_174203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "directions", force: :cascade do |t|
+    t.integer "step"
+    t.string "instructions"
+    t.bigint "recipe_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipe_id"], name: "index_directions_on_recipe_id"
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "each_ingredient"
+    t.integer "quantity"
+    t.string "measurement"
+    t.bigint "recipe_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string "cuisine"
+    t.string "title"
+    t.string "image"
+    t.string "meal_type"
+    t.integer "serving"
+    t.string "prep_time"
+    t.string "cook_time"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_recipes_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -22,4 +55,7 @@ ActiveRecord::Schema.define(version: 2022_04_06_170126) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "directions", "recipes"
+  add_foreign_key "ingredients", "recipes"
+  add_foreign_key "recipes", "users"
 end

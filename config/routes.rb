@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  resources :directions
+  resources :ingredients
+  resources :recipes
   resources :users, only: [:index, :create]
   post "/login", to: "sessions#create"
   get "/me", to: "users#show"

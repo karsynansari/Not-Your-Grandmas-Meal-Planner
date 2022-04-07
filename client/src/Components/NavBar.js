@@ -4,7 +4,7 @@ function NavBar({onLogout, user}) {
    function handleLogout() {
      fetch("/logout", {
        method: "DELETE",
-     }).then(() => onLogout());
+     }).then(() => onLogout(null));
    }
   return (
     <>

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import NavBar from "./NavBar";
 import Search from "./Search";
-import MealPlanPage from "./MealPlanPage"
-import ContributeRecipePage from "./ContributeRecipePage";
+
 import RecipeCardContainer from "./RecipeCardContainer";
 
 function Homepage({ user, onLogout }) {
@@ -22,11 +20,9 @@ function Homepage({ user, onLogout }) {
   )
   return (
     <>
-      <NavBar onLogout={onLogout} user={user} />
+    
       <div>Homepage</div>
-      <MealPlanPage/>
-      <ContributeRecipePage/>
-      <Search search={search} setSearch={setSearch}/>
+      <Search search={search} setSearch={setSearch} />
       <RecipeCardContainer recipes={searchedRecipes} />
     </>
   );

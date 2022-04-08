@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react"
 import WelcomePage from "./WelcomePage";
+import Header from "./Header";
 import Homepage from "./Homepage";
 import '../App.css';
 
@@ -16,7 +17,7 @@ console.log(user)
 
   return (
     <>
-      <Homepage user={user} onLogout={setUser}/>
+      <Header user={user} onLogout={setUser} />
       <WelcomePage onLogin={setUser} />
     </>
   );

@@ -1,7 +1,7 @@
 import React from 'react'
 
 function RecipeCard({recipe}) {
-  const {id, cuisine, title, image, meal_type, serving, prep_time, cook_time} = recipe
+  const {title, image, meal_type, serving, prep_time, cook_time} = recipe
   return (
   
     <li className= 'card'> 

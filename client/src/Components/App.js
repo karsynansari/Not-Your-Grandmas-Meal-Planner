@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react"
 import WelcomePage from "./WelcomePage";
 import Header from "./Header";
-import Homepage from "./Homepage";
 import '../App.css';
 
 function App() {

@@ -1,7 +1,8 @@
 import React from 'react'
 import {NavLink} from "react-router-dom"
+import {Button} from "react-bootstrap"
 
-function NavBar({onLogout, user}) {
+function NavBar({onLogout}) {
    function handleLogout() {
      fetch("/logout", {
        method: "DELETE",
@@ -21,7 +22,7 @@ function NavBar({onLogout, user}) {
     <>
       <p>Nav Bar</p>
       <header>
-        <button onClick={handleLogout}>Log out</button>
+        <Button onClick={handleLogout}>Log out</Button>
       </header>
       <div>
         <NavLink

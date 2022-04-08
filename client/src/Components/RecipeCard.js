@@ -1,6 +1,6 @@
 import React from "react";
 
-function RecipeCard({ recipe, setRecipeCardClicked, recipeCardClicked}) {
+function RecipeCard({ recipe, setRecipeCardClicked}) {
   const { id, title, image, meal_type, serving, prep_time, cook_time } = recipe;
 
   //make sure you understand why this works.

@@ -3,7 +3,9 @@ import { Modal } from 'react-bootstrap'
 
 function RecipeModal({setRecipeCardClicked, clickedRecipe}) {
   const [show, setShow] = useState(true);
-  console.log(clickedRecipe)
+ const recipeDirections = clickedRecipe.directions 
+const eachDirection = recipeDirections.map((direction) => (direction.instructions))
+console.log(eachDirection)
 
   const handleClose = () => setShow(false);
   //this is making the recipe card show state change back to false when you close the modal. 
@@ -24,7 +26,7 @@ setRecipeCardClicked((value) => !value);
           <h3>
           {clickedRecipe.title}
           </h3>
-          <p>the rest goes here</p>
+          <li>Directions {eachDirection}</li>
         </Modal.Body>
       </Modal>
     </>

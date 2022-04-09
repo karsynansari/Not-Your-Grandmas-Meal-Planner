@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import { Modal } from 'react-bootstrap'
 
-function RecipeModal({setRecipeCardClicked}) {
+function RecipeModal({setRecipeCardClicked, clickedRecipe}) {
   const [show, setShow] = useState(true);
+  console.log(clickedRecipe)
 
   const handleClose = () => setShow(false);
   //this is making the recipe card show state change back to false when you close the modal. 
@@ -21,10 +22,9 @@ setRecipeCardClicked((value) => !value);
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
           <h3>
-          body
+          {clickedRecipe.title}
           </h3>
-          <p>body</p>
-          <p>body </p>
+          <p>the rest goes here</p>
         </Modal.Body>
       </Modal>
     </>

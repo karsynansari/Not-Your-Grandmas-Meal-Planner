@@ -1,13 +1,13 @@
 import React from "react";
 
-function RecipeCard({ recipe, setRecipeCardClicked}) {
+function RecipeCard({ recipe, setRecipeCardClicked, setClickedRecipe}) {
   const { id, title, image, meal_type, serving, prep_time, cook_time } = recipe;
 
   //make sure you understand why this works.
   //currently, state is updating when a card is clicked. 
 function handleRecipeCardclick() {
-  console.log(id)
 setRecipeCardClicked((value) => !value)
+setClickedRecipe(recipe)
 }
 
   return (

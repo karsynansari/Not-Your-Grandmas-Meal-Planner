@@ -3,5 +3,4 @@ class RecipeSerializer < ActiveModel::Serializer
   has_one :user
   has_many :ingredients
   has_many :directions
-  belongs_to :meal_plan
 end

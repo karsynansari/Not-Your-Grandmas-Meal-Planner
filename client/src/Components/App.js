@@ -4,12 +4,23 @@ import Header from "./Header";
 import '../App.css';
 
 function App() {
-const [user, setUser] = useState(null); 
-console.log(user)
+  const userObject = 
+    {
+        "id": " ",
+        "username": " ",
+        "password_digest": " ",
+        "meal_plans": [
+            {
+            
+            }
+        ]
+    }
+  
+const [user, setUser] = useState({userObject}); 
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
-        response.json().then((user) => setUser(user))
+        response.json().then((theuser) => setUser(theuser))
       }
     }); 
   }, []); 

@@ -1,4 +1,6 @@
 import React from "react";
+import {Container} from "react-bootstrap"
+import {Button} from "react-bootstrap"
 
 function RecipeCard({ recipe, setRecipeCardClicked, setClickedRecipe}) {
   const { id, title, image, meal_type, serving, prep_time, cook_time } = recipe;
@@ -11,15 +13,17 @@ setClickedRecipe(recipe)
 }
 
   return (
-    <li className="card" onClick={handleRecipeCardclick}>
-      <img src={image} alt={title}></img>
-      <h4>{title}</h4>
-      <p>Meal: {meal_type}</p>
-      <p>Servings: {serving}</p>
-      <p>Cook time: {cook_time}</p>
-      <p>Prep time: {prep_time}</p>
-      <button>Add to meal plan</button>
-    </li>
+    <Container>
+      <li>
+        <img onClick={handleRecipeCardclick} src={image} alt={title}></img>
+        <h4>{title}</h4>
+        <p>Meal: {meal_type}</p>
+        <p>Servings: {serving}</p>
+        <p>Cook time: {cook_time}</p>
+        <p>Prep time: {prep_time}</p>
+        <Button>Add to meal plan</Button>
+      </li>
+    </Container>
   );
 }
 

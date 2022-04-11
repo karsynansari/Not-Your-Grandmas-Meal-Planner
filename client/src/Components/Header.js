@@ -6,6 +6,7 @@ import MealPlanPage from "./MealPlanPage";
 import ContributeRecipePage from "./ContributeRecipePage";
 
 function Header({user, onLogout}) {
+  console.log(user)
     const [recipes, setRecipes] = useState([]);
     const [recipeCardClicked, setRecipeCardClicked] = useState(false);
     const [clickedRecipe, setClickedRecipe] = useState({});
@@ -23,7 +24,7 @@ function Header({user, onLogout}) {
       <NavBar onLogout={onLogout} user={user} />
       <Switch>
         <Route exact path="/meal_plans">
-          <MealPlanPage />
+          <MealPlanPage user={user}/>
         </Route>
         <Route exact path="/add_recipe">
           <ContributeRecipePage />

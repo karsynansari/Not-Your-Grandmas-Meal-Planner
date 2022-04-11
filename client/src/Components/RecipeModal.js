@@ -18,6 +18,7 @@ setRecipeCardClicked((value) => !value);
   return (
     <>
       <Modal
+        className="modal"
         show={show}
         onHide={handleClose}
         onClick={handleUpdateRecipeCardClickedState}

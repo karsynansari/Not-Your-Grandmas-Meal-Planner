@@ -18,16 +18,18 @@
 
 .card button {
   margin-top: 0.5rem;
+
 }
 .card {
     width: calc(33% - 2rem);
   }
 
-  .card {
-    width: calc(25% - 2rem);
+  /* Welcome page */
+  .page-title {
+      text-align: center;
   }
 
-  .card {
-    width: calc(20% - 2rem);
-  }
-
+  /* modal */
+.modal img {
+  width: 100%;
+}

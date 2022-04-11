@@ -10,7 +10,7 @@ function Header({user, onLogout}) {
     const [recipeCardClicked, setRecipeCardClicked] = useState(false);
     const [clickedRecipe, setClickedRecipe] = useState({});
   
-
+//GET for recipes 
     useEffect(() => {
       fetch("http://localhost:4000/recipes")
         .then((response) => response.json())

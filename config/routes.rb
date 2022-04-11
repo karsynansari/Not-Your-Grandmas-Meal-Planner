@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :recipe_meal_plans
+  resources :meal_plans
   resources :directions, only: [:index]
   resources :ingredients, only: [:index]
   resources :recipes, only: [:index]

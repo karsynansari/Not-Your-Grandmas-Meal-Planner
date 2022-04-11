@@ -1,4 +1,6 @@
+RecipeMealPlan.destroy_all
 Recipe.destroy_all
+MealPlan.destroy_all
 User.destroy_all
 Ingredient.destroy_all
 Direction.destroy_all
@@ -45,3 +47,14 @@ D10 = Direction.create(step: 1, instructions: "Dice onions and garlic", recipe_i
 D11 = Direction.create(step: 2,  instructions: "Sautee onions and garlic in oil until translucent", recipe_id: R4.id)
 D12 = Direction.create(step: 3 , instructions: "Add other veggies, coconut milk, and red curry paste into the pan with onions and garlic", recipe_id: R4.id)
 puts "directions seeded "
+
+puts "seeding meal plans"
+MP1 = MealPlan.create(title: "This week", user_id: U2.id)
+MP2 = MealPlan.create(title: "Next week", user_id: U2.id)
+puts "meal plans seeded "
+
+puts "seeding recipe meal plan join"
+RMP1 = RecipeMealPlan.create(recipe_id: R1.id, meal_plan_id: MP2.id)
+RMP2 = RecipeMealPlan.create(recipe_id: R2.id, meal_plan_id: MP2.id)
+RMP3 = RecipeMealPlan.create(recipe_id: R2.id, meal_plan_id: MP1.id)
+puts "reciple meal plan join seeded"

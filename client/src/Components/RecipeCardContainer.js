@@ -4,9 +4,8 @@ import {Card} from "react-bootstrap"
 
 function RecipeCardContainer({ recipes, setRecipeCardClicked, setClickedRecipe}) {
   const recipesArr = recipes.map((recipe) => (
-    <Card style={{ width: "12rem" }}>
+    <Card style={{ width: "12rem" }} key={recipe.id}>
       <RecipeCard
-        key={recipe.id}
         recipe={recipe}
         setRecipeCardClicked={setRecipeCardClicked}
         setClickedRecipe={setClickedRecipe}

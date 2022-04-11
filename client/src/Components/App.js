@@ -16,7 +16,7 @@ function App() {
         ]
     }
   
-const [user, setUser] = useState({userObject}); 
+const [user, setUser] = useState(userObject); 
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {

@@ -6,8 +6,8 @@ function RecipeModal({setRecipeCardClicked, clickedRecipe}) {
   const {id, cuisine, title, image, meal_type, serving, prep_time, cook_time} = clickedRecipe
   const recipeDirections = clickedRecipe.directions 
   const recipeIngredients = clickedRecipe.ingredients
-  console.log(recipeIngredients)
-  console.log(clickedRecipe)
+  // console.log(recipeIngredients)
+  // console.log(clickedRecipe)
 
   const handleClose = () => setShow(false);
 
@@ -35,7 +35,7 @@ setRecipeCardClicked((value) => !value);
           <p>Cook Time: {cook_time}</p>
           <p>Ingredients</p>
           {recipeIngredients.map((ingredient) => (
-            <ul>
+            <ul key={ingredient.id}>
               {ingredient.quantity} {ingredient.measurement}{" "}
               {ingredient.each_ingredient}
             </ul>

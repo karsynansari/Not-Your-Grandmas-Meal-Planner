@@ -1,14 +1,14 @@
 /* recipe cards  */
-
+body {
+background: linear-gradient(135deg, rgb(255, 168, 168) 10%, rgb(252, 255, 0) 100%);
+}
 .cards {
   list-style: none;
 }
-
 .cards {
   display: flex;
   flex-wrap: wrap;
 }
-
 .card {
   margin: 1rem;
 }
@@ -33,4 +33,21 @@
   /* modal */
 .modal img {
   width: 100%;
+}
+/* navbar */
+.nav-bar-link {
+margin: 12px; 
+color: black; 
+}
+.nav-bar {
+font-size: 25px;
+}
+.active{
+  color:#FF7E67;
+}
+
+/* buttons  */
+.btn {
+  background-color: #41B883;
+  border: #fff !important;
 }

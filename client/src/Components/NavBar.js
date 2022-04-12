@@ -1,63 +1,51 @@
-import React from 'react'
-import {NavLink} from "react-router-dom"
-import {Button} from "react-bootstrap"
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 
-function NavBar({onLogout}) {
-   function handleLogout() {
-     fetch("/logout", {
-       method: "DELETE",
-     }).then(() => onLogout(null));
-   }
+function NavBar({ onLogout }) {
+  function handleLogout() {
+    fetch("/logout", {
+      method: "DELETE",
+    }).then(() => onLogout(null));
+  }
 
-   const linkStyles = {
-     display: "inline-block",
-     width: "50px",
-     padding: "12px",
-     margin: "0 6px 6px",
-     background: "blue",
-     textDecoration: "none",
-     color: "white",
-   };
   return (
     <>
-      <p>Nav Bar</p>
-      <header>
-        <Button onClick={handleLogout}>Log out</Button>
-      </header>
       <div>
-        <NavLink
-          to="/"
-          exact
-          style={linkStyles}
-          activeStyle={{
-            background: "darkblue",
-          }}
-        >
-          Home
-        </NavLink>
-        <NavLink
-          to="meal_plans"
-          exact
-          style={linkStyles}
-          activeStyle={{
-            background: "darkblue",
-          }}
-        >
-          Meal Plans
-        </NavLink>
-        <NavLink
-          to="/add_recipe"
-          exact
-          style={linkStyles}
-          activeStyle={{
-            background: "darkblue",
-          }}
-        >
-          Add Recipe
-        </NavLink>
+        <Navbar bg="navBar" className="nav-bar">
+          <header>
+            <Button onClick={handleLogout}>Log out</Button>
+          </header>
+
+          <NavLink
+            className="nav-bar-link"
+            exact
+            activeClassName="active"
+            to="/"
+          >
+            Home
+          </NavLink>
+          <NavLink
+            className="nav-bar-link"
+            exact
+            activeClassName="active"
+            to="meal_plans"
+          >
+            Meal Plans
+          </NavLink>
+          <NavLink
+            className="nav-bar-link"
+            exact
+            activeClassName="active"
+            to="/add_recipe"
+          >
+            Add Recipe
+          </NavLink>
+        </Navbar>
       </div>
     </>
   );
 }
 
-export default NavBar
+export default NavBar;

@@ -1,7 +1,6 @@
 import React, { useState} from "react";
 import Search from "./Search";
 import RecipeCardContainer from "./RecipeCardContainer";
-import RecipeModal from "./RecipeModal";
 
 function Homepage({recipes, recipeCardClicked, setRecipeCardClicked, clickedRecipe, setClickedRecipe}) {
  const [search, setSearch] = useState("")
@@ -19,12 +18,6 @@ function Homepage({recipes, recipeCardClicked, setRecipeCardClicked, clickedReci
         setRecipeCardClicked={setRecipeCardClicked}
         setClickedRecipe={setClickedRecipe}
       />
-      {recipeCardClicked ? (
-        <RecipeModal
-          setRecipeCardClicked={setRecipeCardClicked}
-          clickedRecipe={clickedRecipe}
-        />
-      ) : null}
     </>
   );
 }

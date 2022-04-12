@@ -3,6 +3,7 @@ import RecipeCard from './RecipeCard'
 import {Card} from "react-bootstrap"
 
 function RecipeCardContainer({ recipes, setRecipeCardClicked, setClickedRecipe}) {
+  console.log(recipes)
   const recipesArr = recipes.map((recipe) => (
     <Card style={{ width: "12rem" }} key={recipe.id}>
       <RecipeCard

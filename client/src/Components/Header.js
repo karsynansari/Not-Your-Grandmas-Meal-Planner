@@ -3,6 +3,7 @@ import {Route, Switch} from "react-router-dom"
 import Homepage from './Homepage'
 import NavBar from './NavBar';
 import MealPlanPage from "./MealPlanPage";
+import RecipeModal from './RecipeModal';
 import ContributeRecipePage from "./ContributeRecipePage";
 
 function Header({user, onLogout}) {
@@ -22,22 +23,31 @@ function Header({user, onLogout}) {
     <>
       <div>Header</div>
       <NavBar onLogout={onLogout} user={user} />
+      {recipeCardClicked ? (
+        <RecipeModal
+          setRecipeCardClicked={setRecipeCardClicked}
+          clickedRecipe={clickedRecipe}
+        />
+      ) : null}
       <Switch>
         <Route exact path="/meal_plans">
-          <MealPlanPage user={user}/>
+          <MealPlanPage
+            user={user}
+            setRecipeCardClicked={setRecipeCardClicked}
+            setClickedRecipe={setClickedRecipe}
+          />
         </Route>
         <Route exact path="/add_recipe">
           <ContributeRecipePage />
         </Route>
         <Route exact path="/">
-          <Homepage user={user} 
-          onLogout={onLogout} 
-          recipes = {recipes}
-         recipeCardClicked ={recipeCardClicked}
-         setRecipeCardClicked= {setRecipeCardClicked}
-         clickedRecipe={clickedRecipe}
-         setClickedRecipe={setClickedRecipe}
-         />
+          <Homepage
+            user={user}
+            onLogout={onLogout}
+            recipes={recipes}
+            setRecipeCardClicked={setRecipeCardClicked}
+            setClickedRecipe={setClickedRecipe}
+          />
         </Route>
       </Switch>
     </>

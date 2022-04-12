@@ -4,9 +4,8 @@ import EachMealPlan from "./EachMealPlan";
 import { Card } from "react-bootstrap";
 
 function MealPlanPage({ user, setRecipeCardClicked, setClickedRecipe}) {
-  const userMealPlansArr = user.meal_plans?.map((mealPlan) => mealPlan);
-  console.log(userMealPlansArr);
-  const eachMealPlan = userMealPlansArr.map((eachPlan) => (
+  const userMealPlansArr = user?.meal_plans.map((mealPlan) => mealPlan);
+  const eachMealPlan = userMealPlansArr?.map((eachPlan) => (
     <Card style={{ width: "50rem" }}>
       <EachMealPlan
         eachPlan={eachPlan}
@@ -17,9 +16,9 @@ function MealPlanPage({ user, setRecipeCardClicked, setClickedRecipe}) {
   ));
   return (
     <>
+      <MealPlanForm user={user} />
       <ul>{eachMealPlan}</ul>
       <div>MealPlanPage</div>
-      <MealPlanForm />
     </>
   );
 }

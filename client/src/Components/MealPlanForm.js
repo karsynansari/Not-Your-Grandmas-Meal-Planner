@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 
-function MealPlanForm({ user }) {
+function MealPlanForm({ user, setUserMealPlans }) {
   console.log(user.id);
   const newMealPlanObj = {
     title: " ",
@@ -29,7 +29,8 @@ function MealPlanForm({ user }) {
     })
       .then((response) => response.json())
       //Posting to database, but need refresh to get new meal plan to render. need to fix. 
-      .then((data) => (data));
+      .then((data) => setUserMealPlans((currentMealPlans) => [...currentMealPlans, data]));
+      setNewMealPlan(newMealPlanObj)
   }
   return (
     <Container>

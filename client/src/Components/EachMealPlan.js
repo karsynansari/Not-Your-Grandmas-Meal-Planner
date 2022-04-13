@@ -4,7 +4,7 @@ import { Card } from "react-bootstrap";
 import RecipeCard from "./RecipeCard";
 import { Button } from "react-bootstrap";
 
-function EachMealPlan({ eachPlan, setClickedRecipe, setRecipeCardClicked}) {
+function EachMealPlan({ eachPlan, setClickedRecipe, setRecipeCardClicked, setUserMealPlans}) {
   // console.log(eachPlan);
 
   const recipesArr = eachPlan.recipes?.map((recipe) => (
@@ -22,7 +22,8 @@ function EachMealPlan({ eachPlan, setClickedRecipe, setRecipeCardClicked}) {
     fetch(`/meal_plans/${eachPlan.id}`, {
       method: "DELETE",
     });
-  
+
+    setUserMealPlans((currentMealPlans) => currentMealPlans.filter((oneMealPlan) => oneMealPlan.id !== eachPlan.id)); 
   }
 
   return (

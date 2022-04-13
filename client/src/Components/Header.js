@@ -11,6 +11,7 @@ function Header({user, onLogout}) {
     const [recipes, setRecipes] = useState([]);
     const [recipeCardClicked, setRecipeCardClicked] = useState(false);
     const [clickedRecipe, setClickedRecipe] = useState({});
+    const [userMealPlans, setUserMealPlans] = useState([])
   
 //GET for recipes 
     useEffect(() => {
@@ -18,7 +19,11 @@ function Header({user, onLogout}) {
         .then((response) => response.json())
         .then((data) => setRecipes(data));
     }, []);
-    //make this also include cuisine, meal type, etc
+
+    useEffect(() => {
+      const userMealPlansArr = user?.meal_plans.map((mealPlan) => mealPlan);
+      setUserMealPlans(userMealPlansArr);
+    }, [user]);
   return (
     <>
       <div>Header</div>
@@ -33,6 +38,8 @@ function Header({user, onLogout}) {
         <Route exact path="/meal_plans">
           <MealPlanPage
             user={user}
+            userMealPlans={userMealPlans}
+            setUserMealPlans={setUserMealPlans}
             setUser={onLogout}
             setRecipeCardClicked={setRecipeCardClicked}
             setClickedRecipe={setClickedRecipe}

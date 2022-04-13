@@ -27,7 +27,7 @@ const [user, setUser] = useState(userObject);
 
   return (
     <>
-      <Header user={user} onLogout={setUser} setUser={setUser} />
+      <Header user={user} onLogout={setUser} />
       <WelcomePage onLogin={setUser} />
     </>
   );

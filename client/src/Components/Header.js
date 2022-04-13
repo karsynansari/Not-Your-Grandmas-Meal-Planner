@@ -33,6 +33,7 @@ function Header({user, onLogout}) {
         <Route exact path="/meal_plans">
           <MealPlanPage
             user={user}
+            setUser={onLogout}
             setRecipeCardClicked={setRecipeCardClicked}
             setClickedRecipe={setClickedRecipe}
           />

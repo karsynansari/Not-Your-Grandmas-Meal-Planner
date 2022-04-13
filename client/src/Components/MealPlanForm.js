@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 
 function MealPlanForm({ user, setUserMealPlans }) {
-  console.log(user.id);
+  // console.log(user.id);
   const newMealPlanObj = {
     title: " ",
     user_id: user.id,

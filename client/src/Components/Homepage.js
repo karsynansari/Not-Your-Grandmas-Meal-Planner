@@ -2,7 +2,7 @@ import React, { useState} from "react";
 import Search from "./Search";
 import RecipeCardContainer from "./RecipeCardContainer";
 
-function Homepage({recipes, recipeCardClicked, setRecipeCardClicked, clickedRecipe, setClickedRecipe}) {
+function Homepage({recipes, setRecipeCardClicked, setClickedRecipe, userMealPlans}) {
  const [search, setSearch] = useState("")
   //make this also include cuisine, meal type, etc
   const searchedRecipes = recipes.filter((recipe) =>
@@ -17,6 +17,7 @@ function Homepage({recipes, recipeCardClicked, setRecipeCardClicked, clickedReci
         recipes={searchedRecipes}
         setRecipeCardClicked={setRecipeCardClicked}
         setClickedRecipe={setClickedRecipe}
+        userMealPlans={userMealPlans}
       />
     </>
   );

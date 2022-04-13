@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
-  resources :recipe_meal_plans
-  resources :meal_plans, only: [:index, :show, :create, :destroy]
+  resources :recipe_meal_plans, only: [:index, :create]
+  resources :meal_plans, only: [:index, :show, :create, :destroy, :update]
   resources :directions, only: [:index]
   resources :ingredients, only: [:index]
   resources :recipes, only: [:index]

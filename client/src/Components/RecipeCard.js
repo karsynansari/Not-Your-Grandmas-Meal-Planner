@@ -7,6 +7,7 @@ function RecipeCard({ recipe, setRecipeCardClicked, setClickedRecipe, userMealPl
  console.log(userMealPlans)
   const { id, title, image, meal_type, serving, prep_time, cook_time } = recipe;
 
+
   //make sure you understand why this works.
   //currently, state is updating when a card is clicked.
   function handleRecipeCardclick() {
@@ -28,11 +29,11 @@ function RecipeCard({ recipe, setRecipeCardClicked, setClickedRecipe, userMealPl
         <p>Prep time: {prep_time}</p>
         <Dropdown onSelect={handleSelect}>
           <Dropdown.Toggle variant="success" id="dropdown-basic">
-            Dropdown Button
+            Add to Meal Plan
           </Dropdown.Toggle>
           <Dropdown.Menu>
             {userMealPlans?.map((mealPlan) => (
-              <Dropdown.Item eventKey="#/action-1">{mealPlan.title}</Dropdown.Item>
+              <Dropdown.Item eventKey={mealPlan.id}>{mealPlan.title}</Dropdown.Item>
             ))}
           </Dropdown.Menu>
         </Dropdown>

@@ -51,3 +51,9 @@ font-size: 25px;
   background-color: #41B883;
   border: #fff !important;
 }
+/* 
+login error */
+
+.errStyle {
+  color: #FF3F68
+}

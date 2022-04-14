@@ -6,7 +6,7 @@ function MealPlanForm({ user, setUserMealPlans }) {
   // console.log(user.id);
   const newMealPlanObj = {
     title: " ",
-    user_id: user.id,
+    user_id: user?.id,
   };
   const [newMealPlan, setNewMealPlan] = useState(newMealPlanObj);
 

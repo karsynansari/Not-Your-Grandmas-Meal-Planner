@@ -5,10 +5,9 @@ import RecipeCard from "./RecipeCard";
 import { Button } from "react-bootstrap";
 
 function EachMealPlan({ eachPlan, setClickedRecipe, setRecipeCardClicked, setUserMealPlans}) {
-  // console.log(eachPlan);
 
   const recipesArr = eachPlan.recipes?.map((recipe) => (
-    <Card style={{ width: "12rem" }} key={recipe.id}>
+    <Card style={{ width: "12rem" }} key={Math.random()}>
       <RecipeCard
         recipe={recipe}
         setRecipeCardClicked={setRecipeCardClicked}
@@ -16,7 +15,7 @@ function EachMealPlan({ eachPlan, setClickedRecipe, setRecipeCardClicked, setUse
       />
     </Card>
   ));
-//delete working but not resetting state. Need to figure this out. 
+
   function handleDelete() {
     console.log("click!", eachPlan.id);
     fetch(`/meal_plans/${eachPlan.id}`, {

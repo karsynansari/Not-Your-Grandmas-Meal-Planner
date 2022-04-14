@@ -9,16 +9,6 @@ function RecipeCard({
   userMealPlans,
 }) {
   const { id, title, image, meal_type, serving, prep_time, cook_time } = recipe;
-  // const newRecipeMealPlanObj = {
-  //   recipe_id: " ",
-  //   meal_plan_id: "",
-  // };
-  // const [addRecipeToMealPlan, setAddRecipeToMealPlan] = useState(newRecipeMealPlanObj);
-  // console.log(addRecipeToMealPlan)
-
-  //make sure you understand why this works.
-
-  //currently, state is updating when a card is clicked.
   function handleRecipeCardclick() {
     setRecipeCardClicked((value) => !value);
     setClickedRecipe(recipe);
@@ -41,7 +31,6 @@ function RecipeCard({
       .then((data) => console.log(data));
   }
 
-
   return (
     <Container>
       <li>
@@ -57,7 +46,7 @@ function RecipeCard({
           </Dropdown.Toggle>
           <Dropdown.Menu>
             {userMealPlans?.map((mealPlan) => (
-              <Dropdown.Item eventKey={mealPlan.id}>
+              <Dropdown.Item key ={Math.random()} eventKey={mealPlan.id}>
                 {mealPlan.title}
               </Dropdown.Item>
             ))}

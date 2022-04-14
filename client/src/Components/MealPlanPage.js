@@ -6,8 +6,9 @@ import { Card } from "react-bootstrap";
 function MealPlanPage({ user, userMealPlans, setUserMealPlans, setRecipeCardClicked, setClickedRecipe}) {
   
   const eachMealPlan = userMealPlans?.map((eachPlan) => (
-    <Card style={{ width: "50rem" }}>
+    <Card style={{ width: "50rem" }} key={Math.random()}>
       <EachMealPlan
+        key={Math.random()}
         setUserMealPlans={setUserMealPlans}
         eachPlan={eachPlan}
         setRecipeCardClicked={setRecipeCardClicked}

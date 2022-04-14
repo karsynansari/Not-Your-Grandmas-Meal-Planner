@@ -11,12 +11,10 @@ function RecipeCardContainer({
   console.log(recipes);
   console.log(userMealPlans);
 
-  //trying to map through the meal plans currently in state to get each title to pass down to recipe card to use in the dropdown.
-  // const eachUserMealPlan = userMealPlans?.map((oneMealPlan) => (oneMealPlan))
-  // console.log(eachUserMealPlan)
   const recipesArr = recipes.map((recipe) => (
-    <Card style={{ width: "12rem" }} key={recipe.id}>
+    <Card style={{ width: "12rem" }} key={Math.random()}>
       <RecipeCard
+        key={Math.random()}
         recipe={recipe}
         setRecipeCardClicked={setRecipeCardClicked}
         setClickedRecipe={setClickedRecipe}

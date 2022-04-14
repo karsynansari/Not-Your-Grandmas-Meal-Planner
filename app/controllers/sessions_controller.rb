@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   # need error handling for this if username isn't found
    def create
     user = User.find_by!(username: params[:username])
-     if user
+     if user&.authenticate(params[:password])
     session[:user_id] = user.id
     render json: user, status: :created
      else 
@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
      end 
     end
  
-
   def destroy
     session.delete :user_id
     render json: {message: "user logged out"}

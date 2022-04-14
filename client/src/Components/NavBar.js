@@ -2,8 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { Navbar } from "react-bootstrap";
+import {Container} from "react-bootstrap"
 
-function NavBar({ onLogout }) {
+function NavBar({ onLogout, user }) {
   function handleLogout() {
     fetch("/logout", {
       method: "DELETE",
@@ -43,6 +44,7 @@ function NavBar({ onLogout }) {
             Add Recipe
           </NavLink>
         </Navbar>
+        <Container className="nav-bar">Hello {user?.username}</Container>
       </div>
     </>
   );

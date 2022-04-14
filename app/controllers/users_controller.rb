@@ -10,12 +10,13 @@ class UsersController < ApplicationController
     if user
       render json: user, include: ["meal_plans", "meal_plans.recipes.ingredients", "meal_plans.recipes.directions"]
     else
-      render json: { error: "Not authorized" }, status: :unauthorized
+      render json: { error: "user not in session" }, status: :unauthorized
     end
   end
 
   def create
     user = User.create!(user_params)
+    session[:user_id] = user.id
     render json: user, status: :created
   end 
 

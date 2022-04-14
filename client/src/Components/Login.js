@@ -5,12 +5,10 @@ import { Button } from "react-bootstrap";
 function Login({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null)
-
+  const [error, setError] = useState(null);
 
   function handleSubmit(e) {
-    console.log(e)
-    e.preventDefault()
+    e.preventDefault();
     fetch("/login", {
       method: "POST",
       headers: {
@@ -20,24 +18,27 @@ function Login({ onLogin }) {
         username,
         password,
       }),
-    })
-      .then((response) => {
-       if (response.ok)  {
-         response.json().then((user) => onLogin(user));
-       } else {
+    }).then((response) => {
+      setUsername("");
+      setPassword("");
+      if (response.ok) {
+        response.json().then((user) => onLogin(user));
+      } else {
         response.json().then((theerror) => setError(theerror));
-       }
-  })
-}
+      }
+    });
+  }
   return (
     <div>
       <Container>
         <p>Log In</p>
         <form onSubmit={handleSubmit}>
           {error == null ? null : (
-            <label className="errStyle">Username or Password {error.error}</label>
+            <label className="errStyle">
+              Username or Password {error.error}
+            </label>
           )}
-         <label htmlFor="username">Username:</label>
+          <label htmlFor="username">Username:</label>
           <input
             type="text"
             value={username}

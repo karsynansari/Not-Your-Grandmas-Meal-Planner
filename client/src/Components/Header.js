@@ -1,29 +1,31 @@
-import React, {useState, useEffect} from 'react'
-import {Route, Switch} from "react-router-dom"
-import Homepage from './Homepage'
-import NavBar from './NavBar';
+import React, { useState, useEffect } from "react";
+import { Route, Switch } from "react-router-dom";
+import Homepage from "./Homepage";
+import NavBar from "./NavBar";
 import MealPlanPage from "./MealPlanPage";
-import RecipeModal from './RecipeModal';
+import RecipeModal from "./RecipeModal";
 import ContributeRecipePage from "./ContributeRecipePage";
 
-function Header({user, onLogout}) {
-  console.log(user)
-    const [recipes, setRecipes] = useState([]);
-    const [recipeCardClicked, setRecipeCardClicked] = useState(false);
-    const [clickedRecipe, setClickedRecipe] = useState({});
-    const [userMealPlans, setUserMealPlans] = useState([])
-  
-//GET for recipes 
-    useEffect(() => {
-      fetch("http://localhost:4000/recipes")
-        .then((response) => response.json())
-        .then((data) => setRecipes(data));
-    }, []);
+function Header({ user, onLogout }) {
+  // console.log(user.meal_plans)
+  const [recipes, setRecipes] = useState([]);
+  const [recipeCardClicked, setRecipeCardClicked] = useState(false);
+  const [clickedRecipe, setClickedRecipe] = useState({});
+  const [userMealPlans, setUserMealPlans] = useState([]);
+  console.log(userMealPlans);
+  //GET for recipes
+  useEffect(() => {
+    fetch("http://localhost:4000/recipes")
+      .then((response) => response.json())
+      .then((data) => setRecipes(data));
+  }, []);
 
-    useEffect(() => {
-      const userMealPlansArr = user?.meal_plans.map((mealPlan) => mealPlan);
-      setUserMealPlans(userMealPlansArr);
-    }, [user]);
+  useEffect(() => {
+    const userMealPlansArr = user?.meal_plans;
+    // .map
+    // ((mealPlan) => mealPlan);
+    setUserMealPlans(userMealPlansArr);
+  }, [user]);
   return (
     <>
       <div>Header</div>
@@ -63,4 +65,4 @@ function Header({user, onLogout}) {
   );
 }
 
-export default Header
+export default Header;

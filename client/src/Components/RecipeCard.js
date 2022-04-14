@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React from "react";
 import { Container } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
 
@@ -9,12 +9,12 @@ function RecipeCard({
   userMealPlans,
 }) {
   const { id, title, image, meal_type, serving, prep_time, cook_time } = recipe;
-  const newRecipeMealPlanObj = {
-    recipe_id: " ",
-    meal_plan_id: "",
-  };
-  const [addRecipeToMealPlan, setAddRecipeToMealPlan] = useState(newRecipeMealPlanObj);
-  console.log(addRecipeToMealPlan)
+  // const newRecipeMealPlanObj = {
+  //   recipe_id: " ",
+  //   meal_plan_id: "",
+  // };
+  // const [addRecipeToMealPlan, setAddRecipeToMealPlan] = useState(newRecipeMealPlanObj);
+  // console.log(addRecipeToMealPlan)
 
   //make sure you understand why this works.
 
@@ -25,24 +25,21 @@ function RecipeCard({
   }
 
   function handleSelect(e) {
-    setAddRecipeToMealPlan((newRecipeMealPlanState) => ({
-      ...newRecipeMealPlanState,
-      recipe_id: recipe.id,
+    let addRecipetoMealPlan = {
+      recipe_id: id,
       meal_plan_id: e,
-    }));
+    };
+    console.log(addRecipetoMealPlan);
+    fetch("/recipe_meal_plans", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(addRecipetoMealPlan),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
   }
-// useEffect(() => {
-// console.log("clicked");
-// fetch("/recipe_meal_plans", {
-//   method: "POST",
-//   headers: {
-//     "Content-Type": "application/json",
-//   },
-//   body: JSON.stringify(addRecipeToMealPlan),
-// })
-//   .then((response) => response.json())
-//   .then((data) => console.log(data));
-// }, [addRecipeToMealPlan])
 
 
   return (

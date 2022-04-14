@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import { Container } from "react-bootstrap";
-import { Button } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
 
-function RecipeCard({ recipe, setRecipeCardClicked, setClickedRecipe, userMealPlans}) {
- console.log(userMealPlans)
+function RecipeCard({
+  recipe,
+  setRecipeCardClicked,
+  setClickedRecipe,
+  userMealPlans,
+}) {
   const { id, title, image, meal_type, serving, prep_time, cook_time } = recipe;
-
+  const newRecipeMealPlanObj = {
+    recipe_id: " ",
+    meal_plan_id: "",
+  };
+  const [addRecipeToMealPlan, setAddRecipeToMealPlan] = useState(newRecipeMealPlanObj);
+  console.log(addRecipeToMealPlan)
 
   //make sure you understand why this works.
+
   //currently, state is updating when a card is clicked.
   function handleRecipeCardclick() {
     setRecipeCardClicked((value) => !value);
@@ -16,8 +25,26 @@ function RecipeCard({ recipe, setRecipeCardClicked, setClickedRecipe, userMealPl
   }
 
   function handleSelect(e) {
-    console.log(e, recipe.id)
+    setAddRecipeToMealPlan((newRecipeMealPlanState) => ({
+      ...newRecipeMealPlanState,
+      recipe_id: recipe.id,
+      meal_plan_id: e,
+    }));
   }
+// useEffect(() => {
+// console.log("clicked");
+// fetch("/recipe_meal_plans", {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+//   body: JSON.stringify(addRecipeToMealPlan),
+// })
+//   .then((response) => response.json())
+//   .then((data) => console.log(data));
+// }, [addRecipeToMealPlan])
+
+
   return (
     <Container>
       <li>
@@ -33,7 +60,9 @@ function RecipeCard({ recipe, setRecipeCardClicked, setClickedRecipe, userMealPl
           </Dropdown.Toggle>
           <Dropdown.Menu>
             {userMealPlans?.map((mealPlan) => (
-              <Dropdown.Item eventKey={mealPlan.id}>{mealPlan.title}</Dropdown.Item>
+              <Dropdown.Item eventKey={mealPlan.id}>
+                {mealPlan.title}
+              </Dropdown.Item>
             ))}
           </Dropdown.Menu>
         </Dropdown>

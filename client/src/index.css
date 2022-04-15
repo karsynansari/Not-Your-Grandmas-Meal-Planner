@@ -5,6 +5,11 @@ body {
     rgb(255, 168, 168) 10%,
     rgb(252, 255, 0) 100%
   );
+  background-image: url(https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjV8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60);
+   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .cards {
   list-style: none;
@@ -31,19 +36,40 @@ body {
 /* Welcome page */
 .page-title {
   text-align: center;
-  color: #e46161;
+  color: #63754E;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    margin-top: 50px; 
+    margin-bottom: 40px;
+    backdrop-filter: blur(30px);
+     -webkit-text-stroke: .5px #fdffcd; /* width and color */
+     border: .5px solid green;
+       border-radius: 10px;  
 }
 
 .login-signup {
-  background: #ffcab0;
+  background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    color:  #63754E;
+
 }
 
 input {
-  background: #fdffcd;
+  background:#FBFAF9;
+  border: 1px solid black;
+}
+.loginsignupcardscontainer {
+  height: 200px;
+  position: relative;
+
+}
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 /* modal */
 .modal img {
@@ -65,6 +91,12 @@ input {
 .btn {
   background-color: #41b883;
   border: #fff !important;
+  border-radius: 25px;  
+}
+
+.btn:hover {
+    color: black;
+    background-color: #e0ffcd;
 }
 /* 
 login error */

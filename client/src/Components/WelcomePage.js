@@ -19,24 +19,28 @@ function WelcomePage({ onLogin }) {
             <h3>Log In or Sign Up to Get Started </h3>
           </Row>
         </div>
-        <Row>
-          <Col>
-            <Card
-              className="login-signup"
-              style={{ width: "18rem", height: "90%" }}
-            >
-              <Login onLogin={onLogin} />
-            </Card>
-          </Col>
-          <Col>
-            <Card
-              className="login-signup"
-              style={{ width: "18rem", height: "90%" }}
-            >
-              <SignUp onLogin={onLogin} />
-            </Card>
-          </Col>
-        </Row>
+        <Container className="loginsignupcardscontainer">
+          <div className="vertical-center">
+            <Row>
+              <Col >
+                <Card
+                  className="login-signup"
+                  style={{ width: "18rem", height: "90%" }}
+                >
+                  <Login onLogin={onLogin} />
+                </Card>
+              </Col>
+              <Col >
+                <Card
+                  className="login-signup"
+                  style={{ width: "18rem", height: "90%" }}
+                >
+                  <SignUp onLogin={onLogin} />
+                </Card>
+              </Col>
+            </Row>
+          </div>
+        </Container>
       </Container>
     </>
   );

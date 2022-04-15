@@ -34,9 +34,7 @@ function Login({ onLogin }) {
         <p>Log In</p>
         <form onSubmit={handleSubmit}>
           {error == null ? null : (
-            <label className="errStyle">
-              Username or Password {error.error}
-            </label>
+            <label className="errStyle">{error.error}</label>
           )}
           <label htmlFor="username">Username:</label>
           <input

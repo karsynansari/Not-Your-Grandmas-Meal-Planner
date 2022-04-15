@@ -57,3 +57,13 @@ login error */
 .errStyle {
   color: #FF3F68
 }
+
+/* navbar image */
+
+.nav-bar-img img {
+  margin: 1rem;
+}
+
+.nav-bar-img img {
+  width: 15%;
+}

@@ -1,10 +1,19 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { NavLink } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { Navbar } from "react-bootstrap";
 import {Container} from "react-bootstrap"
 
 function NavBar({ onLogout, user }) {
+const [foodImage, setFoodImage] = useState({})
+console.log(foodImage)
+  useEffect(() => {
+    fetch("https://foodish-api.herokuapp.com/api/")
+      .then((response) => response.json())
+      .then((data) => setFoodImage(data));
+      
+  }, [user]);
+
   function handleLogout() {
     fetch("/logout", {
       method: "DELETE",
@@ -43,8 +52,13 @@ function NavBar({ onLogout, user }) {
           >
             Add Recipe
           </NavLink>
+          <Container className="nav-bar">
+            Hello {user?.username}, here's your foodspiration
+            <div className="nav-bar-img">
+              <img src={foodImage.image}></img>
+            </div>
+          </Container>
         </Navbar>
-        <Container className="nav-bar">Hello {user?.username}</Container>
       </div>
     </>
   );

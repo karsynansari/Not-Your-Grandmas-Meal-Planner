@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_invalid 
   def index
   users = User.all 
-  render json: users, include: ["meal_plans", "meal_plans.recipes.ingredients", "meal_plans.recipes.directions"]
+  render json: users, include: ["recipe_meal_plans", "meal_plans", "meal_plans.recipes.ingredients", "meal_plans.recipes.directions"]
   end 
 
     def show

@@ -4,17 +4,17 @@ import Header from "./Header";
 import '../App.css';
 
 function App() {
-  const userObject = 
-    {
-        "id": " ",
-        "username": " ",
-        "password_digest": " ",
-        "meal_plans": [
+  // const userObject = 
+  //   {
+  //       "id": " ",
+  //       "username": " ",
+  //       "password_digest": " ",
+  //       "meal_plans": [
           
-        ]
-    }
+  //       ]
+  //   }
   
-const [user, setUser] = useState(userObject); 
+const [user, setUser] = useState(null); 
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
@@ -27,8 +27,11 @@ const [user, setUser] = useState(userObject);
 
   return (
     <>
-      <Header user={user} onLogout={setUser} />
-      <WelcomePage onLogin={setUser} />
+      {user == null ? (
+        <WelcomePage onLogin={setUser} />
+      ) : (
+        <Header user={user} onLogout={setUser} />
+      )}
     </>
   );
   }

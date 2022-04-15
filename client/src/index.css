@@ -1,6 +1,10 @@
 /* recipe cards  */
 body {
-background: linear-gradient(135deg, rgb(255, 168, 168) 10%, rgb(252, 255, 0) 100%);
+  background: linear-gradient(
+    135deg,
+    rgb(255, 168, 168) 10%,
+    rgb(252, 255, 0) 100%
+  );
 }
 .cards {
   list-style: none;
@@ -19,43 +23,54 @@ background: linear-gradient(135deg, rgb(255, 168, 168) 10%, rgb(252, 255, 0) 100
 
 .card button {
   margin-top: 0.5rem;
-
 }
 .card {
-    width: calc(33% - 2rem);
-  }
+  width: calc(33% - 2rem);
+}
 
-  /* Welcome page */
-  .page-title {
-      text-align: center;
-  }
+/* Welcome page */
+.page-title {
+  text-align: center;
+  color: #e46161;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
 
-  /* modal */
+.login-signup {
+  background: #ffcab0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+input {
+  background: #fdffcd;
+}
+/* modal */
 .modal img {
   width: 100%;
 }
 /* navbar */
 .nav-bar-link {
-margin: 12px; 
-color: black; 
+  margin: 12px;
+  color: black;
 }
 .nav-bar {
-font-size: 25px;
+  font-size: 25px;
 }
-.active{
-  color:#FF7E67;
+.active {
+  color: #ff7e67;
 }
 
 /* buttons  */
 .btn {
-  background-color: #41B883;
+  background-color: #41b883;
   border: #fff !important;
 }
 /* 
 login error */
 
 .errStyle {
-  color: #FF3F68
+  color: #ff3f68;
 }
 
 /* navbar image */

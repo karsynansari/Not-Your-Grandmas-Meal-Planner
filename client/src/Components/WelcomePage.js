@@ -11,17 +11,28 @@ function WelcomePage({ onLogin }) {
   return (
     <>
       <Container>
-        <Row>
-          <h1 className="page-title">Welcome Page</h1>
-        </Row>
+        <div className="page-title">
+          <Row>
+            <h1>Your Meal Planner</h1>
+          </Row>
+          <Row>
+            <h3>Log In or Sign Up to Get Started </h3>
+          </Row>
+        </div>
         <Row>
           <Col>
-            <Card style={{ width: "18rem" }}>
+            <Card
+              className="login-signup"
+              style={{ width: "18rem", height: "90%" }}
+            >
               <Login onLogin={onLogin} />
             </Card>
           </Col>
           <Col>
-            <Card style={{ width: "18rem" }}>
+            <Card
+              className="login-signup"
+              style={{ width: "18rem", height: "90%" }}
+            >
               <SignUp onLogin={onLogin} />
             </Card>
           </Col>

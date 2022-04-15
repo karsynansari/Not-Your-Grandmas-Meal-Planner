@@ -26,8 +26,8 @@ function SignUp({onLogin}) {
   return (
     <div>
       <Container>
-        <p>Sign Up</p>
         <form onSubmit={handleSubmit}>
+          <label htmlFor="username">Username:</label>
           <input
             type="text"
             id="username"

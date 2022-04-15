@@ -31,7 +31,6 @@ function Login({ onLogin }) {
   return (
     <div>
       <Container>
-        <p>Log In</p>
         <form onSubmit={handleSubmit}>
           {error == null ? null : (
             <label className="errStyle">{error.error}</label>

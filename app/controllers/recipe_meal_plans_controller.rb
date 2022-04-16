@@ -7,8 +7,12 @@ class RecipeMealPlansController < ApplicationController
 
 # this is to delete a recipe from a meal plan 
  def destroy
-  byebug
-   recipemealplans = RecipeMealPlan.where(recipe_id: params[:recipe_id], meal_plan_id: params[:meal_plan_id])
+   recipemealplan = RecipeMealPlan.find_by(recipe_id: params[:recipe_id], meal_plan_id: params[:meal_plan_id])
+    if recipemealplan
+    recipemealplan.destroy
+    head :no_content 
+    else render json: {error: "recipemealplan not found"}, status: :not_found
+    end 
   end 
 
   def create

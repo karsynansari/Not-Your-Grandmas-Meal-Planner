@@ -13,6 +13,7 @@ function MealPlanPage({ user, userMealPlans, setUserMealPlans, setRecipeCardClic
         eachPlan={eachPlan}
         setRecipeCardClicked={setRecipeCardClicked}
         setClickedRecipe={setClickedRecipe}
+        
       />
     </Card>
   ));

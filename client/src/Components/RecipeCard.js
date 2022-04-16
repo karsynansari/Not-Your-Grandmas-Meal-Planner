@@ -8,7 +8,6 @@ function RecipeCard({
   setClickedRecipe,
   userMealPlans,
 }) {
-  console.log(userMealPlans)
   const { id, title, image, meal_type, serving, prep_time, cook_time } = recipe;
   function handleRecipeCardclick() {
     setRecipeCardClicked((value) => !value);

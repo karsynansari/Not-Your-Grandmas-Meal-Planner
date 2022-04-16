@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import RecipeCard from "./RecipeCard";
@@ -10,28 +10,17 @@ function EachMealPlan({
   setRecipeCardClicked,
   setUserMealPlans,
 }) {
-  const [deletedMealPlanRecipe, setDeletedMealPlanRecipe] = useState({
-  });
+//need to get this to rerender on delete. need a piece of state. 
+  function handleRecipeCardDelete(recipe_id, meal_plan_id) {
+    console.log(recipe_id)
+      fetch(`/recipe_meal_plans/${recipe_id}/${meal_plan_id}`, {
+        method: "DELETE",
+      });
+  }
 
-  console.log(deletedMealPlanRecipe);
-
-  // if (deletedMealPlanRecipe ==! {}) {
-  //   fetch(
-  //     `/recipe_meal_plans/${deletedMealPlanRecipe.recipe_id}/${deletedMealPlanRecipe.meal_plan_id}`,
-  //     {
-  //       method: "DELETE",
-  //     }
-  //   );
-  // } 
   const recipesArr = eachPlan.recipes?.map((recipe) => (
     <Card
-      onClick={() =>
-        setDeletedMealPlanRecipe((currentmealplanrecipe) => ({
-          ...currentmealplanrecipe,
-          recipe_id: recipe.id,
-          meal_plan_id: eachPlan.id,
-        })) 
-      }
+      onClick={() => handleRecipeCardDelete(recipe.id, eachPlan.id)}
       style={{ width: "12rem" }}
       key={Math.random()}
     >

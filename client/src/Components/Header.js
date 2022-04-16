@@ -7,13 +7,11 @@ import RecipeModal from "./RecipeModal";
 import ContributeRecipePage from "./ContributeRecipePage";
 
 function Header({ user, onLogout }) {
-  // console.log(user.meal_plans)
   const [recipes, setRecipes] = useState([]);
   const [recipeCardClicked, setRecipeCardClicked] = useState(false);
   const [clickedRecipe, setClickedRecipe] = useState({});
   const [userMealPlans, setUserMealPlans] = useState([]);
-  console.log(userMealPlans);
-  //GET for recipes
+  
   useEffect(() => {
     fetch("http://localhost:4000/recipes")
       .then((response) => response.json())
@@ -22,7 +20,6 @@ function Header({ user, onLogout }) {
 
   useEffect(() => {
     const userMealPlansArr = user?.meal_plans;
-    console.log(userMealPlansArr)
     // .map
     // ((mealPlan) => mealPlan);
     setUserMealPlans(userMealPlansArr);

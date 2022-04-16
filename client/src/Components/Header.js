@@ -22,6 +22,7 @@ function Header({ user, onLogout }) {
 
   useEffect(() => {
     const userMealPlansArr = user?.meal_plans;
+    console.log(userMealPlansArr)
     // .map
     // ((mealPlan) => mealPlan);
     setUserMealPlans(userMealPlansArr);

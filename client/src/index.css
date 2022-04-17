@@ -86,13 +86,31 @@ input {
   margin: 12px;
   color: black;
 }
-.nav-bar {
-  font-size: 25px;
+.navbar {
+  background-color:  #63754E;
+  height: 35px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.nav-bar-link:hover {
+    color: #63754E;
 }
 .active {
-  color: #ff7e67;
+  color:#e0ffcd
 }
 
+.nav-links {
+  text-align: right;
+  margin-right: 25px; 
+}
+
+.nav-links btn {
+  background-color: black; 
+  margin-left: 2px;
+}
+.nav-links img {
+  width: 10%;
+}
 /* buttons  */
 .btn {
   background-color: #41b883;
@@ -106,20 +124,10 @@ input {
 }
 /* 
 login error */
-
 .errStyle {
   color: #ff3f68;
 }
 
-/* navbar image */
-
-.nav-bar-img img {
-  margin: 1rem;
-}
-
-.nav-bar-img img {
-  width: 15%;
-}
 /* meal plan modal  */
 .modal-title {
    text-align: center;

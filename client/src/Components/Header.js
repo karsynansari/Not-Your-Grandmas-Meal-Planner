@@ -26,7 +26,7 @@ function Header({ user, onLogout }) {
   }, [user]);
   return (
     <>
-      <div>Header</div>
+    
       <NavBar onLogout={onLogout} user={user} />
       {recipeCardClicked ? (
         <RecipeModal

@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import { NavLink } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { Navbar } from "react-bootstrap";
-import {Container} from "react-bootstrap"
 
 function NavBar({ onLogout, user }) {
 const [foodImage, setFoodImage] = useState({})
@@ -23,41 +22,36 @@ console.log(foodImage)
   return (
     <>
       <div>
-        <Navbar bg="navBar" className="nav-bar">
-          <header>
+        <Navbar bg="navBar">
+          <div className="nav-links">
             <Button onClick={handleLogout}>Log out</Button>
-          </header>
-
-          <NavLink
-            className="nav-bar-link"
-            exact
-            activeClassName="active"
-            to="/"
-          >
-            Home
-          </NavLink>
-          <NavLink
-            className="nav-bar-link"
-            exact
-            activeClassName="active"
-            to="meal_plans"
-          >
-            Meal Plans
-          </NavLink>
-          <NavLink
-            className="nav-bar-link"
-            exact
-            activeClassName="active"
-            to="/add_recipe"
-          >
-            Add Recipe
-          </NavLink>
-          <Container className="nav-bar">
-            Hello {user?.username}, here's your foodspiration
-            <div className="nav-bar-img">
+            <NavLink
+              className="nav-bar-link"
+              exact
+              activeClassName="active"
+              to="/"
+            >
+              Home
+            </NavLink>
+            <NavLink
+              className="nav-bar-link"
+              exact
+              activeClassName="active"
+              to="meal_plans"
+            >
+              Meal Plans
+            </NavLink>
+            <NavLink
+              className="nav-bar-link"
+              exact
+              activeClassName="active"
+              to="/add_recipe"
+            >
+              Add Recipe
+            </NavLink>
+              Hello {user?.username}, here's your foodspiration
               <img src={foodImage.image}></img>
-            </div>
-          </Container>
+          </div>
         </Navbar>
       </div>
     </>

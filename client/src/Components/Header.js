@@ -11,9 +11,9 @@ function Header({ user, onLogout }) {
   const [recipeCardClicked, setRecipeCardClicked] = useState(false);
   const [clickedRecipe, setClickedRecipe] = useState({});
   const [userMealPlans, setUserMealPlans] = useState([]);
-  // const [userRecipeMealPlans, setUserRecipeMealPlans] = useState({})
-  // console.log(userRecipeMealPlans)
-  console.log(userMealPlans)
+  // const [userRecipeMealPlans, setUserRecipeMealPlans] = useState([])
+
+  console.log(userMealPlans);
   useEffect(() => {
     fetch("http://localhost:4000/recipes")
       .then((response) => response.json())
@@ -22,14 +22,14 @@ function Header({ user, onLogout }) {
 
   useEffect(() => {
     const userMealPlansArr = user?.meal_plans;
-    // .map
-    // ((mealPlan) => mealPlan);
     setUserMealPlans(userMealPlansArr);
-  }, [user], 
-  );
+    // const userRecipeMealPlansArr = userMealPlans.map(
+    //   (eachplan) => eachplan.recipe_meal_plans
+    // );
+    // setUserRecipeMealPlans(userRecipeMealPlansArr);
+  }, [user, userMealPlans]);
   return (
     <>
-    
       <NavBar onLogout={onLogout} user={user} />
       {recipeCardClicked ? (
         <RecipeModal

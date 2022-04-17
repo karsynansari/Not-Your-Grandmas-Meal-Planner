@@ -10,7 +10,7 @@ function EachMealPlan({
   setRecipeCardClicked,
   setUserMealPlans,
   userMealPlans,
-  recipeCardsOnMealPlan
+  recipeCardsOnMealPlan, 
 }) {
 
   //need to get this to rerender on delete. need a piece of state.
@@ -18,7 +18,9 @@ function EachMealPlan({
     console.log(recipe_id, meal_plan_id);
     fetch(`/recipe_meal_plans/${recipe_id}/${meal_plan_id}`, {
       method: "DELETE",
-    });
+    })
+  .then((response) => response.json())
+  .then((data) => console.log(data))
   }
 
   const recipesArr = eachPlan.recipes?.map((recipe) => (

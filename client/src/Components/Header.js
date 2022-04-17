@@ -11,6 +11,8 @@ function Header({ user, onLogout }) {
   const [recipeCardClicked, setRecipeCardClicked] = useState(false);
   const [clickedRecipe, setClickedRecipe] = useState({});
   const [userMealPlans, setUserMealPlans] = useState([]);
+  // const [userRecipeMealPlans, setUserRecipeMealPlans] = useState({})
+  // console.log(userRecipeMealPlans)
   console.log(userMealPlans)
   useEffect(() => {
     fetch("http://localhost:4000/recipes")
@@ -23,7 +25,8 @@ function Header({ user, onLogout }) {
     // .map
     // ((mealPlan) => mealPlan);
     setUserMealPlans(userMealPlansArr);
-  }, [user]);
+  }, [user], 
+  );
   return (
     <>
     

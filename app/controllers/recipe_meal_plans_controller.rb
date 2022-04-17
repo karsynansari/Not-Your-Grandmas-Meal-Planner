@@ -10,7 +10,7 @@ class RecipeMealPlansController < ApplicationController
    recipemealplan = RecipeMealPlan.find_by(recipe_id: params[:recipe_id], meal_plan_id: params[:meal_plan_id])
     if recipemealplan
     recipemealplan.destroy
-    head :no_content 
+    render json: recipemealplan
     else render json: {error: "recipemealplan not found"}, status: :not_found
     end 
   end 

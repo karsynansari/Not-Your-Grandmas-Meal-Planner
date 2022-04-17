@@ -16,6 +16,7 @@ function EachMealPlan({
       fetch(`/recipe_meal_plans/${recipe_id}/${meal_plan_id}`, {
         method: "DELETE",
       });
+
   }
 
   const recipesArr = eachPlan.recipes?.map((recipe) => (

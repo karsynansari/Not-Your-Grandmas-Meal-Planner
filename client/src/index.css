@@ -71,10 +71,7 @@ input {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/* modal */
-.modal img {
-  width: 100%;
-}
+
 /* navbar */
 .nav-bar-link {
   margin: 12px;
@@ -113,4 +110,60 @@ login error */
 
 .nav-bar-img img {
   width: 15%;
+}
+/* meal plan modal  */
+.modal-title {
+   text-align: center;
+   margin-top: 10px;
+   margin-bottom: 10px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    color:  #63754E;
+    font-size: 35px;
+}
+ .modal-header {
+   background-color: #faf5e4; 
+ }
+.modal-body {
+  text-align: center;
+  background-color: #faf5e4; 
+}
+.modal-img {
+  border: 3px solid green;
+}
+/* modal */
+.modal img {
+  width: 80%;
+}
+
+.recipe-specs {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    color:  #63754E;
+    font-size:12px;
+}
+
+.recipe-ingredients {
+ font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    color:  #63754E;
+    border: 3px solid green;
+margin-top: 5px; 
+font-size:12px;
+}
+
+.ingredients {
+  text-align: left;
+  margin-left: 25px; 
+}
+.flex-container {
+  margin-left: 25px; 
+  text-align: center; 
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/* This code is just to style the inner div elements. */
+.flex-container > p {
+  font-size: 10px;
 }

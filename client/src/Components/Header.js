@@ -11,7 +11,7 @@ function Header({ user, onLogout }) {
   const [recipeCardClicked, setRecipeCardClicked] = useState(false);
   const [clickedRecipe, setClickedRecipe] = useState({});
   const [userMealPlans, setUserMealPlans] = useState([]);
-  
+  console.log(userMealPlans)
   useEffect(() => {
     fetch("http://localhost:4000/recipes")
       .then((response) => response.json())

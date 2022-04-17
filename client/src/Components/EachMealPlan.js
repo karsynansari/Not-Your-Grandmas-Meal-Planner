@@ -1,7 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { Card } from "react-bootstrap";
-// import RecipeCard from "./RecipeCard";
 import { Button } from "react-bootstrap";
 import NewRecipeCard from "./NewRecipeCard";
 
@@ -11,7 +10,9 @@ function EachMealPlan({
   setRecipeCardClicked,
   setUserMealPlans,
   userMealPlans,
+  recipeCardsOnMealPlan
 }) {
+
   //need to get this to rerender on delete. need a piece of state.
   function handleRecipeCardDelete(recipe_id, meal_plan_id) {
     console.log(recipe_id, meal_plan_id);
@@ -29,6 +30,7 @@ function EachMealPlan({
         handleRecipeCardDelete={handleRecipeCardDelete}
         userMealPlans={userMealPlans}
         eachPlan={eachPlan}
+        recipeCardsOnMealPlan={recipeCardsOnMealPlan}
       />
     </Card>
   ));

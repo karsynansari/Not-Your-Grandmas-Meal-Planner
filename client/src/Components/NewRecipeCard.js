@@ -2,6 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+
 export default function NewRecipeCard({
   recipe,
   setRecipeCardClicked,
@@ -10,7 +11,9 @@ export default function NewRecipeCard({
   handleSelect,
   eachPlan,
   handleRecipeCardDelete,
+  recipeCardsOnMealPlan
 }) {
+  console.log(recipeCardsOnMealPlan)
   const { id, title, image, meal_type, serving, prep_time, cook_time } = recipe;
   function handleRecipeCardclick() {
     setRecipeCardClicked((value) => !value);
@@ -27,21 +30,24 @@ export default function NewRecipeCard({
           <p>Cook time: {cook_time}</p>
           <p>Prep time: {prep_time}</p>
         </div>
-        <Dropdown onSelect={(e) => handleSelect(id, e)}>
-          <Dropdown.Toggle variant="success" id="dropdown-basic">
-            Add to Meal Plan
-          </Dropdown.Toggle>
-          <Dropdown.Menu>
-            {userMealPlans?.map((mealPlan) => (
-              <Dropdown.Item key={Math.random()} eventKey={mealPlan.id}>
-                {mealPlan.title}
-              </Dropdown.Item>
-            ))}
-          </Dropdown.Menu>
-        </Dropdown>
-        <Button onClick={() => handleRecipeCardDelete(id, eachPlan.id)}>
-          Hello
-        </Button>
+        {recipeCardsOnMealPlan ? (
+          <Button onClick={() => handleRecipeCardDelete(id, eachPlan.id)}>
+            Remove Recipe From Meal Plan
+          </Button>
+        ) : (
+          <Dropdown onSelect={(e) => handleSelect(id, e)}>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Add to Meal Plan
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              {userMealPlans?.map((mealPlan) => (
+                <Dropdown.Item key={Math.random()} eventKey={mealPlan.id}>
+                  {mealPlan.title}
+                </Dropdown.Item>
+              ))}
+            </Dropdown.Menu>
+          </Dropdown>
+        )}
       </li>
     </Container>
   );

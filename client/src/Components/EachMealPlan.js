@@ -1,34 +1,34 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { Card } from "react-bootstrap";
-import RecipeCard from "./RecipeCard";
+// import RecipeCard from "./RecipeCard";
 import { Button } from "react-bootstrap";
+import NewRecipeCard from "./NewRecipeCard";
 
 function EachMealPlan({
   eachPlan,
   setClickedRecipe,
   setRecipeCardClicked,
   setUserMealPlans,
+  userMealPlans,
 }) {
-//need to get this to rerender on delete. need a piece of state. 
+  //need to get this to rerender on delete. need a piece of state.
   function handleRecipeCardDelete(recipe_id, meal_plan_id) {
-    console.log(recipe_id)
-      fetch(`/recipe_meal_plans/${recipe_id}/${meal_plan_id}`, {
-        method: "DELETE",
-      });
-
+    console.log(recipe_id, meal_plan_id);
+    fetch(`/recipe_meal_plans/${recipe_id}/${meal_plan_id}`, {
+      method: "DELETE",
+    });
   }
 
   const recipesArr = eachPlan.recipes?.map((recipe) => (
-    <Card
-      onClick={() => handleRecipeCardDelete(recipe.id, eachPlan.id)}
-      style={{ width: "12rem" }}
-      key={Math.random()}
-    >
-      <RecipeCard
+    <Card style={{ width: "12rem" }} key={Math.random()}>
+      <NewRecipeCard
         recipe={recipe}
         setRecipeCardClicked={setRecipeCardClicked}
         setClickedRecipe={setClickedRecipe}
+        handleRecipeCardDelete={handleRecipeCardDelete}
+        userMealPlans={userMealPlans}
+        eachPlan={eachPlan}
       />
     </Card>
   ));

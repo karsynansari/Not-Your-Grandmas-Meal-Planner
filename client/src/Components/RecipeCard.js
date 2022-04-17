@@ -32,21 +32,23 @@ function RecipeCard({
   }
 
   return (
-    <Container>
+    <Container className="modal-body">
       <li>
         <img onClick={handleRecipeCardclick} src={image} alt={title}></img>
-        <h4>{title}</h4>
-        <p>Meal: {meal_type}</p>
-        <p>Servings: {serving}</p>
-        <p>Cook time: {cook_time}</p>
-        <p>Prep time: {prep_time}</p>
+        <h4 className="card-title">{title}</h4>
+        <div className="card-body">
+          <p>Meal: {meal_type}</p>
+          <p>Servings: {serving}</p>
+          <p>Cook time: {cook_time}</p>
+          <p>Prep time: {prep_time}</p>
+        </div>
         <Dropdown onSelect={handleSelect}>
           <Dropdown.Toggle variant="success" id="dropdown-basic">
             Add to Meal Plan
           </Dropdown.Toggle>
           <Dropdown.Menu>
             {userMealPlans?.map((mealPlan) => (
-              <Dropdown.Item key ={Math.random()} eventKey={mealPlan.id}>
+              <Dropdown.Item key={Math.random()} eventKey={mealPlan.id}>
                 {mealPlan.title}
               </Dropdown.Item>
             ))}

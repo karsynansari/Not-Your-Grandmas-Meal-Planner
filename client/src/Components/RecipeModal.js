@@ -8,8 +8,6 @@ function RecipeModal({setRecipeCardClicked, clickedRecipe}) {
   const {id, cuisine, title, image, meal_type, serving, prep_time, cook_time} = clickedRecipe
   const recipeDirections = clickedRecipe.directions 
   const recipeIngredients = clickedRecipe.ingredients
-  // console.log(recipeIngredients)
-  // console.log(clickedRecipe)
 
   const handleClose = () => setShow(false);
 

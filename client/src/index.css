@@ -20,6 +20,7 @@ body {
 }
 .card {
   margin: 1rem;
+  width: calc(33% - 2rem);
 }
 
 .card img {
@@ -29,8 +30,16 @@ body {
 .card button {
   margin-top: 0.5rem;
 }
-.card {
-  width: calc(33% - 2rem);
+
+.card-title {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    color:  #63754E;
+}
+.card-body {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-size: 12px; 
 }
 
 /* Welcome page */

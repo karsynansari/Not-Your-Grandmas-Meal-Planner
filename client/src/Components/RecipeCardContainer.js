@@ -12,7 +12,7 @@ function RecipeCardContainer({
   console.log(userMealPlans);
 
   const recipesArr = recipes.map((recipe) => (
-    <Card style={{ width: "12rem" }} key={Math.random()}>
+    <Card style={{ width: "12rem"}} key={Math.random()}>
       <RecipeCard
         key={Math.random()}
         recipe={recipe}

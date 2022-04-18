@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card } from "react-bootstrap";
 import NewRecipeCard from "./NewRecipeCard";
 
-function RecipeCardContainer({recipes,setRecipeCardClicked, setClickedRecipe, userMealPlans}) {
+function RecipeCardContainer({
+  recipes,
+  setRecipeCardClicked,
+  setClickedRecipe,
+  userMealPlans,
+  setUserRecipeMealPlans,
+}) {
   console.log(recipes);
   console.log(userMealPlans);
+  const [recipeMealPlans, setRecipeMealPlans] = useState({});
 
   function handleSelect(recipe_id, meal_plan_id) {
     console.log(recipe_id, meal_plan_id);
     let addRecipetoMealPlan = {
       recipe_id: recipe_id,
-      meal_plan_id: meal_plan_id }
-      console.log(addRecipetoMealPlan)
+      meal_plan_id: meal_plan_id,
+    };
     fetch("/recipe_meal_plans", {
       method: "POST",
       headers: {
@@ -20,7 +27,10 @@ function RecipeCardContainer({recipes,setRecipeCardClicked, setClickedRecipe, us
       body: JSON.stringify(addRecipetoMealPlan),
     })
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => setUserRecipeMealPlans((currentRecipeMealPlans) => [
+          ...currentRecipeMealPlans,
+          data]));
+      setRecipeMealPlans(recipeMealPlans)
   }
   const recipesArr = recipes.map((recipe) => (
     <Card style={{ width: "12rem" }} key={Math.random()}>

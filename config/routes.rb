@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :meal_plans, only: [:index, :show, :create, :destroy, :update]
   resources :directions, only: [:index]
   resources :ingredients, only: [:index]
-  resources :recipes, only: [:index]
+  resources :recipes, only: [:index, :create]
   resources :users, only: [:index, :create]
   post "/login", to: "sessions#create"
   get "/me", to: "users#show"

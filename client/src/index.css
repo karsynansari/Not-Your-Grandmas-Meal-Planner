@@ -87,11 +87,13 @@ input {
   color: black;
 }
 .navbar {
+  position: relative;
   background-color:  #63754E;
   height: 35px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     margin-bottom: 25px;
+    margin-top: 20px; 
 }
 .nav-bar-link:hover {
     color: #63754E;
@@ -241,7 +243,7 @@ form {
   position: relative;
 }
 
-label {
+/* label {
   position: absolute;
   clip: rect(1px, 1px, 1px, 1px);
   padding: 0;
@@ -249,4 +251,47 @@ label {
   height: 1px;
   width: 1px;
   overflow: hidden;
+} */
+
+/* Meal Plans */
+h2 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+     -webkit-text-stroke: .5px #fdffcd; /* width and color */
+     color: #63754E;
+     margin-bottom: 10px;
+     margin-top: 10px; 
+}
+.meal-plan-containers {
+   border: 2px solid green;
+       border-radius: 10px;  
+       backdrop-filter: blur(50px);
+        height: 70%;
+
+}
+
+.each-mp-title {
+  position: relative;
+  margin-top: 12px;
+  margin-bottom: 10px;
+   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+     -webkit-text-stroke: .5px #fdffcd; /* width and color */
+     color: #63754E;
+     text-align: left;
+}
+
+.mp-btn {
+ position: absolute;
+  top: 3%;
+  height: 50px;
+  right: 10px;
+  width: 100px;
+  transform: translateY(-50%);
+  font-size: 12px; 
+}
+
+.meal-plan-form {
+  margin-top: 0;
+  margin-bottom: 10px;
 }

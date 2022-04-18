@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import {Form} from "react-bootstrap"; 
 
 function MealPlanForm({ user, setUserMealPlans }) {
   // console.log(user.id);
@@ -34,9 +35,9 @@ function MealPlanForm({ user, setUserMealPlans }) {
   }
   return (
     <Container>
-      <p>Add a Meal Plan</p>
-      <form onSubmit={handleSubmit}>
+      <Form className="meal-plan-form"  onSubmit={handleSubmit}>
         <input
+          placeholder="hello"
           type="text"
           id="meal_plan"
           name="title"
@@ -44,7 +45,7 @@ function MealPlanForm({ user, setUserMealPlans }) {
           onChange={handleChange}
         />
         <Button type="submit">Add Meal Plan</Button>
-      </form>
+      </Form>
     </Container>
   );
 }

@@ -283,6 +283,8 @@ h2 {
 
 .mp-btn {
  position: absolute;
+ margin-top: 12px;
+  margin-bottom: 10px;
   top: 3%;
   height: 50px;
   right: 10px;

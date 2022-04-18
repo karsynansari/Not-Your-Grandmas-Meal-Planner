@@ -53,8 +53,12 @@ function EachMealPlan({
 
   return (
     <Container>
-      <h3 className= "each-mp-title"> {eachPlan.title} </h3>
-      <Button className = "mp-btn"onClick={handleDelete}>Delete This Meal Plan</Button>
+      <Container>
+        <h3 className="each-mp-title"> {eachPlan.title} </h3>
+        <Button className="mp-btn" onClick={handleDelete}>
+          Delete This Meal Plan
+        </Button>
+      </Container>
       <ul className="cards">{recipesArr}</ul>
     </Container>
   );

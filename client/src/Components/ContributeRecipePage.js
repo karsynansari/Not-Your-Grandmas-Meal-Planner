@@ -1,38 +1,38 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
-import {Container} from "react-bootstrap"; 
-import {Dropdown} from "react-bootstrap"
-import {Button} from "react-bootstrap"
- 
-function ContributeRecipePage({user, setRecipes}) {
- 
-const newRecipeObj = {
-title: " ", 
-cuisine: " ",
-image: " ",
-meal_type: " ", 
-serving: "",
-prep_time: "",
-cook_time: "",
-user_id: user?.id
-}
- const [newRecipe, setNewRecipe] = useState(newRecipeObj);
+import { Container } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
-function handleSelect(e) {
-setNewRecipe((currentRecipeState) => ({
-  ...currentRecipeState,
-  meal_type: e
-}));
-}
-function handleChange(e) {
-  console.log(e.target.value)
-  setNewRecipe((currentRecipeState) => ({
-  ...currentRecipeState, [e.target.name]: e.target.value,
-}))
-}
+function ContributeRecipePage({ user, setRecipes }) {
+  const newRecipeObj = {
+    title: " ",
+    cuisine: " ",
+    image: " ",
+    meal_type: " ",
+    serving: "",
+    prep_time: "",
+    cook_time: "",
+    user_id: user?.id,
+  };
+  const [newRecipe, setNewRecipe] = useState(newRecipeObj);
 
-function handleSubmit(e) {
-  e.preventDefault(); 
+  function handleSelect(e) {
+    setNewRecipe((currentRecipeState) => ({
+      ...currentRecipeState,
+      meal_type: e,
+    }));
+  }
+  function handleChange(e) {
+    console.log(e.target.value);
+    setNewRecipe((currentRecipeState) => ({
+      ...currentRecipeState,
+      [e.target.name]: e.target.value,
+    }));
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
 
     fetch("/recipes", {
       method: "POST",
@@ -42,15 +42,17 @@ function handleSubmit(e) {
       body: JSON.stringify(newRecipe),
     })
       .then((response) => response.json())
-      .then((data) => setRecipes((existingRecipes) => [...existingRecipes, data]));
-    setNewRecipe(newRecipeObj);  
-}
+      .then((data) =>
+        setRecipes((existingRecipes) => [...existingRecipes, data])
+      );
+    setNewRecipe(newRecipeObj);
+  }
   return (
     <div>
       <Container>
         <Form onSubmit={handleSubmit}>
           <input
-            placeholder="Recipe title"
+            placeholder="Recipe Title"
             type="text"
             id="recipe_title"
             name="title"
@@ -116,4 +118,4 @@ function handleSubmit(e) {
   );
 }
 
-export default ContributeRecipePage
+export default ContributeRecipePage;

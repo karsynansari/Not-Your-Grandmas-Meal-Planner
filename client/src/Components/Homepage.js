@@ -11,7 +11,6 @@ function Homepage({recipes, setRecipeCardClicked, setClickedRecipe, userMealPlan
 
   return (
     <>
-      <div>Homepage</div>
       <Search search={search} setSearch={setSearch} />
       <RecipeCardContainer
         recipes={searchedRecipes}

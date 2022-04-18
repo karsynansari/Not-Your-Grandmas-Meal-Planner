@@ -1,17 +1,25 @@
 import React from 'react'
+import {Container} from 'react-bootstrap'
 
 function Search({search, setSearch}) {
+  
   return (
-    <div className="searchbar">
-      <label htmlFor="search">Search Recipes:</label>
-      <input
-        type="text"
-        id="search"
-        placeholder="Type a recipe to search..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-    </div>
+    <Container >
+      <form className="homepage-search">
+
+          <label htmlFor="search">Search Recipes:</label>
+          <input className='search-input'
+            type="text"
+            id="search"
+            placeholder="Type a recipe to search..."
+            autofocus
+            required
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+      
+      </form>
+    </Container>
   );
 }
 

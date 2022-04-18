@@ -28,7 +28,7 @@ console.log(userRecipeMealPlans)
 const userRecipeMealPlansArr = userMealPlans.map(
   (eachmp) => (eachmp.recipe_meal_plans)); 
   setUserRecipeMealPlans(userRecipeMealPlansArr);
-  }, [user]); 
+  }, [userMealPlans]); 
 
   return (
     <>

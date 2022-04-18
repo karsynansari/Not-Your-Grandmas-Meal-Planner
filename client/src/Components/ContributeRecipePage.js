@@ -4,8 +4,35 @@ import {Container} from "react-bootstrap";
 import {Dropdown} from "react-bootstrap"
 import {Button} from "react-bootstrap"
  
-function ContributeRecipePage() {
+function ContributeRecipePage({user}) {
+ 
+const newRecipeObj = {
+title: " ", 
+cuisine: " ",
+image: " ",
+meal_type: " ", 
+serving: "",
+prep_time: "",
+cook_time: "",
+user_id: user?.id
+}
+ const [newRecipe, setNewRecipe] = useState(newRecipeObj);
+ console.log(newRecipe)
 
+function handleSelect(e) {
+console.log(e)
+setNewRecipe((currentRecipeState) => ({
+  ...currentRecipeState,
+  meal_type: e
+}));
+}
+
+function handleChange(e) {
+  console.log(e.target.value)
+  setNewRecipe((currentRecipeState) => ({
+  ...currentRecipeState, [e.target.name]: e.target.value,
+}))
+}
   return (
     <div>
       <Container>
@@ -15,44 +42,50 @@ function ContributeRecipePage() {
             type="text"
             id="recipe_title"
             name="title"
-            value=""
+            value={newRecipe.title}
+            onChange={handleChange}
           />
           <input
             placeholder="Cuisine"
             type="text"
             id="cuisine"
             name="cuisine"
-            value=""
+            value={newRecipe.cuisine}
+            onChange={handleChange}
           />
           <input
             placeholder="Servings"
             type="text"
             id="servings"
             name="serving"
-            value=""
+            value={newRecipe.serving}
+            onChange={handleChange}
           />
           <input
             placeholder="Prep time"
             type="text"
             id="prep-time"
             name="prep_time"
-            value=""
+            value={newRecipe.prep_time}
+            onChange={handleChange}
           />
           <input
             placeholder="Cook time"
             type="text"
             id="cook-time"
             name="cook_time"
-            value=""
+            value={newRecipe.cook_time}
+            onChange={handleChange}
           />
           <input
             placeholder="Recipe image"
             type="text"
             id="image"
             name="image"
-            value=""
+            value={newRecipe.image}
+            onChange={handleChange}
           />
-          <Dropdown>
+          <Dropdown onSelect={(e) => handleSelect(e)}>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               Meal Type
             </Dropdown.Toggle>

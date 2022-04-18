@@ -4,14 +4,7 @@ class RecipesController < ApplicationController
     recipes = Recipe.all 
     render json: recipes
   end
-  # t.string "cuisine"
-  #   t.string "title"
-  #   t.string "image"
-  #   t.string "meal_type"
-  #   t.integer "serving"
-  #   t.string "prep_time"
-  #   t.string "cook_time"
-  #   t.bigint "user_id"
+  
    def create
     newrecipe = Recipe.create(recipe_params)
     render json: newrecipe, status: :created 

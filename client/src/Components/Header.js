@@ -6,11 +6,11 @@ import MealPlanPage from "./MealPlanPage";
 import RecipeModal from "./RecipeModal";
 import ContributeRecipePage from "./ContributeRecipePage";
 
-function Header({ user, onLogout }) {
+function Header({ user, onLogout, userMealPlans, setUserMealPlans }) {
   const [recipes, setRecipes] = useState([]);
   const [recipeCardClicked, setRecipeCardClicked] = useState(false);
   const [clickedRecipe, setClickedRecipe] = useState({});
-  const [userMealPlans, setUserMealPlans] = useState([]);
+  
   console.log(userMealPlans)
   // const [userRecipeMealPlans, setUserRecipeMealPlans] = useState([])
 
@@ -21,14 +21,14 @@ function Header({ user, onLogout }) {
       .then((data) => setRecipes(data));
   }, []);
 
-  useEffect(() => {
-    const userMealPlansArr = user?.meal_plans;
-    setUserMealPlans(userMealPlansArr);
-    // const userRecipeMealPlansArr = userMealPlans.map(
-    //   (eachplan) => eachplan.recipe_meal_plans
-    // );
-    // setUserRecipeMealPlans(userRecipeMealPlansArr);
-  }, [user]);
+  // useEffect(() => {
+  //   const userMealPlansArr = user?.meal_plans;
+  //   setUserMealPlans(userMealPlansArr);
+  //   // const userRecipeMealPlansArr = userMealPlans.map(
+  //   //   (eachplan) => eachplan.recipe_meal_plans
+  //   // );
+  //   // setUserRecipeMealPlans(userRecipeMealPlansArr);
+  // }, [user]);
   return (
     <>
       <NavBar onLogout={onLogout} user={user} />

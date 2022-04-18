@@ -4,7 +4,7 @@ import {Container} from "react-bootstrap";
 import {Dropdown} from "react-bootstrap"
 import {Button} from "react-bootstrap"
  
-function ContributeRecipePage({user}) {
+function ContributeRecipePage({user, setRecipes}) {
  
 const newRecipeObj = {
 title: " ", 
@@ -17,26 +17,38 @@ cook_time: "",
 user_id: user?.id
 }
  const [newRecipe, setNewRecipe] = useState(newRecipeObj);
- console.log(newRecipe)
 
 function handleSelect(e) {
-console.log(e)
 setNewRecipe((currentRecipeState) => ({
   ...currentRecipeState,
   meal_type: e
 }));
 }
-
 function handleChange(e) {
   console.log(e.target.value)
   setNewRecipe((currentRecipeState) => ({
   ...currentRecipeState, [e.target.name]: e.target.value,
 }))
 }
+
+function handleSubmit(e) {
+  e.preventDefault(); 
+
+    fetch("/recipes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newRecipe),
+    })
+      .then((response) => response.json())
+      .then((data) => setRecipes((existingRecipes) => [...existingRecipes, data]));
+    setNewRecipe(newRecipeObj);  
+}
   return (
     <div>
       <Container>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <input
             placeholder="Recipe title"
             type="text"
@@ -97,7 +109,7 @@ function handleChange(e) {
               <Dropdown.Item eventKey="Desert">Desert</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <Button>Submit Recipe</Button>
+          <Button type="submit">Submit Recipe</Button>
         </Form>
       </Container>
     </div>

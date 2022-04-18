@@ -42,7 +42,7 @@ function Header({ user, onLogout, userMealPlans, setUserMealPlans, setUserRecipe
           />
         </Route>
         <Route exact path="/add_recipe">
-          <ContributeRecipePage user={user} />
+          <ContributeRecipePage user={user} setRecipes={setRecipes} />
         </Route>
         <Route exact path="/">
           <Homepage
@@ -53,6 +53,7 @@ function Header({ user, onLogout, userMealPlans, setUserMealPlans, setUserRecipe
             setRecipeCardClicked={setRecipeCardClicked}
             setClickedRecipe={setClickedRecipe}
             setUserRecipeMealPlans={setUserRecipeMealPlans}
+            setRecipes={setRecipes}
           />
         </Route>
       </Switch>

@@ -11,6 +11,7 @@ function Header({ user, onLogout }) {
   const [recipeCardClicked, setRecipeCardClicked] = useState(false);
   const [clickedRecipe, setClickedRecipe] = useState({});
   const [userMealPlans, setUserMealPlans] = useState([]);
+  console.log(userMealPlans)
   // const [userRecipeMealPlans, setUserRecipeMealPlans] = useState([])
 
   console.log(userMealPlans);
@@ -27,7 +28,7 @@ function Header({ user, onLogout }) {
     //   (eachplan) => eachplan.recipe_meal_plans
     // );
     // setUserRecipeMealPlans(userRecipeMealPlansArr);
-  }, [user, userMealPlans]);
+  }, [user]);
   return (
     <>
       <NavBar onLogout={onLogout} user={user} />

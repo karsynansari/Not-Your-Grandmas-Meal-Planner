@@ -10,14 +10,14 @@ class RecipeMealPlansController < ApplicationController
    recipemealplan = RecipeMealPlan.find_by(recipe_id: params[:recipe_id], meal_plan_id: params[:meal_plan_id])
     if recipemealplan
     recipemealplan.destroy
-    render json: recipemealplan
+    render json: recipemealplan.recipe
     else render json: {error: "recipemealplan not found"}, status: :not_found
     end 
   end 
 
   def create
     recipemealplans = RecipeMealPlan.create(recipe_meal_plan_params)
-    render json: recipemealplans, status: :created 
+    render json: recipemealplans.recipe, status: :created 
   end 
 
 

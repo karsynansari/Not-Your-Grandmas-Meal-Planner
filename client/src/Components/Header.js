@@ -6,13 +6,11 @@ import MealPlanPage from "./MealPlanPage";
 import RecipeModal from "./RecipeModal";
 import ContributeRecipePage from "./ContributeRecipePage";
 
-function Header({ user, onLogout, userMealPlans, setUserMealPlans, setUserRecipeMealPlans }) {
+function Header({ user, onLogout, userMealPlans, setUserMealPlans }) {
   const [recipes, setRecipes] = useState([]);
   const [recipeCardClicked, setRecipeCardClicked] = useState(false);
   const [clickedRecipe, setClickedRecipe] = useState({});
-  
-  console.log(userMealPlans)
-  // const [userRecipeMealPlans, setUserRecipeMealPlans] = useState([])
+  console.log(userMealPlans); 
 
   console.log(userMealPlans);
   useEffect(() => {
@@ -52,8 +50,8 @@ function Header({ user, onLogout, userMealPlans, setUserMealPlans, setUserRecipe
             recipes={recipes}
             setRecipeCardClicked={setRecipeCardClicked}
             setClickedRecipe={setClickedRecipe}
-            setUserRecipeMealPlans={setUserRecipeMealPlans}
             setRecipes={setRecipes}
+            setUserMealPlans={setUserMealPlans}
           />
         </Route>
       </Switch>

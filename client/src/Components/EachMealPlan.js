@@ -10,20 +10,27 @@ function EachMealPlan({
   setRecipeCardClicked,
   setUserMealPlans,
   userMealPlans,
-  recipeCardsOnMealPlan
+  recipeCardsOnMealPlan,
 }) {
-
   //need to get this to rerender on delete. need a piece of state.
   function handleRecipeCardDelete(recipe_id, meal_plan_id) {
     fetch(`/recipe_meal_plans/${recipe_id}/${meal_plan_id}`, {
       method: "DELETE",
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      
-    //   setUserRecipeMealPlans((currentMealPlans) =>
-    //   currentMealPlans.filter((oneMealPlan) => oneMealPlan.id !== data.id)
-    // ));
+    });
+    setUserMealPlans((currentMealPlans) =>
+      currentMealPlans.map((mealPlan) => {
+        // if the mealPlan in the array is the meal plan you deleted recipe from
+        if (mealPlan.id === meal_plan_id) {
+          const updatedRecipes = mealPlan.recipes.filter(
+            (recipe) => recipe.id !== recipe_id
+          );
+          return { ...mealPlan, recipes: updatedRecipes };
+        } else {
+          // didn't delete recipe from this mealPlan
+          return mealPlan;
+        }
+      })
+    );
   }
 
   const recipesArr = eachPlan.recipes?.map((recipe) => (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card } from "react-bootstrap";
 import NewRecipeCard from "./NewRecipeCard";
 
@@ -7,11 +7,10 @@ function RecipeCardContainer({
   setRecipeCardClicked,
   setClickedRecipe,
   userMealPlans,
-  setUserRecipeMealPlans,
+  setUserMealPlans
 }) {
   console.log(recipes);
   console.log(userMealPlans);
-  const [recipeMealPlans, setRecipeMealPlans] = useState({});
 
   function handleSelect(recipe_id, meal_plan_id) {
     console.log(recipe_id, meal_plan_id);
@@ -27,10 +26,7 @@ function RecipeCardContainer({
       body: JSON.stringify(addRecipetoMealPlan),
     })
       .then((response) => response.json())
-      .then((data) => setUserRecipeMealPlans((currentRecipeMealPlans) => [
-          ...currentRecipeMealPlans,
-          data]));
-      setRecipeMealPlans(recipeMealPlans)
+     .then((data) => console.log(data))
   }
   const recipesArr = recipes.map((recipe) => (
     <Card style={{ width: "12rem" }} key={Math.random()}>

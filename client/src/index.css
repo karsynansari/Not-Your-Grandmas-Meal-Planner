@@ -1,15 +1,26 @@
 /* recipe cards  */
+body {
+  background: linear-gradient(
+    135deg,
+    rgb(255, 168, 168) 10%,
+    rgb(252, 255, 0) 100%
+  );
+  background-image: url(https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjV8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60);
+   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 .cards {
   list-style: none;
 }
-
 .cards {
   display: flex;
   flex-wrap: wrap;
 }
-
 .card {
   margin: 1rem;
+  width: calc(33% - 2rem);
 }
 
 .card img {
@@ -19,15 +30,270 @@
 .card button {
   margin-top: 0.5rem;
 }
-.card {
-    width: calc(33% - 2rem);
-  }
 
-  .card {
-    width: calc(25% - 2rem);
-  }
+.card-title {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    color:  #63754E;
+}
+.card-body {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-size: 12px; 
+}
 
-  .card {
-    width: calc(20% - 2rem);
-  }
+/* Welcome page */
+.page-title {
+  text-align: center;
+  color: #63754E;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    margin-top: 50px; 
+    margin-bottom: 40px;
+    backdrop-filter: blur(30px);
+     -webkit-text-stroke: .5px #fdffcd; /* width and color */
+     border: .5px solid green;
+       border-radius: 10px;  
+}
 
+.login-signup {
+  background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    color:  #63754E;
+
+}
+
+input {
+  background:#FBFAF9;
+  border: 1px solid black;
+}
+.loginsignupcardscontainer {
+  height: 200px;
+  position: relative;
+
+}
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* navbar */
+.nav-bar-link {
+  margin: 12px;
+  color: black;
+}
+.navbar {
+  position: relative;
+  background-color:  #63754E;
+  height: 35px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    margin-bottom: 25px;
+    margin-top: 20px; 
+}
+.nav-bar-link:hover {
+    color: whitesmoke;
+}
+.active {
+  color:#e0ffcd
+}
+
+.nav-links {
+  text-align: right;
+  margin-right: 25px; 
+}
+
+.nav-links btn {
+  background-color: black; 
+  margin-left: 2px;
+}
+.nav-links img {
+  width: 10%;
+}
+/* buttons  */
+.btn {
+  background-color: #41b883;
+  border: #fff !important;
+  border-radius: 25px;  
+}
+
+.btn:hover {
+    color: black;
+    background-color: #e0ffcd;
+}
+/* 
+login error */
+.errStyle {
+  color: #ff3f68;
+}
+
+/* meal plan modal  */
+.modal-title {
+   text-align: center;
+   margin-top: 10px;
+   margin-bottom: 10px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    color:  #63754E;
+    font-size: 35px;
+}
+ .modal-header {
+   background-color: #faf5e4; 
+ }
+.modal-body {
+  text-align: center;
+  background-color: #faf5e4; 
+}
+.modal-img {
+  border: 3px solid green;
+}
+/* modal */
+.modal img {
+  width: 80%;
+}
+
+.recipe-specs {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    color:  #63754E;
+    font-size:12px;
+}
+
+.recipe-ingredients {
+ font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    color:  #63754E;
+    border: 3px solid green;
+margin-top: 5px; 
+font-size:12px;
+}
+
+.ingredients {
+  text-align: left;
+  margin-left: 25px; 
+}
+.flex-container {
+  margin-left: 25px; 
+  text-align: center; 
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/* This code is just to style the inner div elements. */
+.flex-container > p {
+  font-size: 10px;
+}
+
+/* search bar  */
+
+
+:root {
+  --rad: .7rem;
+  --dur: .3s;
+  --color-dark: #2f2f2f;
+  --color-light: #fff;
+  --color-brand: #57bd84;
+  --font-fam: 'Lato', sans-serif;
+  --height: 5rem;
+  --bez: cubic-bezier(0, 0, 0.43, 1.49);
+}
+/* body {background: var(--color-dark); display: flex; align-items: center; justify-content: center; min-height: 100vh }
+html { box-sizing: border-box; height: 100%; font-size: 10px; } *, *::before, *::after { box-sizing: inherit; } */
+/* form.body {
+    text-align: center;
+    display: inline-block;
+} */
+body {
+    text-align: center;
+}
+form {
+    display: inline-block;
+}
+
+.hp-search {
+  justify-content: center;
+}
+.hompage-search {
+  width: 30rem;
+  background: var(--color-brand);
+  border-radius: var(--rad);
+}
+.search-input {
+  height: 25px;
+  font-family: var(--font-fam);
+  border: 0;
+  color: var(--color-dark);
+  font-size: 1rem;
+  justify-content: center;
+}
+.search-input{
+  outline: 0; 
+  width: 100%;
+  background: var(--color-light);
+  padding: 0 1.6rem;
+  border-radius: var(--rad);
+  appearance: none;
+  transition: all var(--dur) var(--bez);
+  transition-property: width, border-radius;
+  z-index: 1;
+  position: relative;
+}
+
+/* label {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+} */
+
+/* Meal Plans */
+h2 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+     -webkit-text-stroke: .5px #fdffcd; /* width and color */
+     color: #63754E;
+     margin-bottom: 10px;
+     margin-top: 10px; 
+}
+.meal-plan-containers {
+   border: 2px solid green;
+       border-radius: 10px;  
+       backdrop-filter: blur(50px);
+        height: 70%;
+
+}
+
+.each-mp-title {
+  position: relative;
+  margin-top: 12px;
+  margin-bottom: 10px;
+   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+     -webkit-text-stroke: .5px #fdffcd; /* width and color */
+     color: #63754E;
+     text-align: left;
+}
+
+.mp-btn {
+ position: absolute;
+ margin-top: 12px;
+  margin-bottom: 10px;
+  top: 3%;
+  height: 50px;
+  right: 10px;
+  width: 100px;
+  transform: translateY(-50%);
+  font-size: 12px; 
+}
+
+.meal-plan-form {
+  margin-top: 0;
+  margin-bottom: 10px;
+}

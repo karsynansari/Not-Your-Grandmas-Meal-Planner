@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  rescue_from ActiveRecord::RecordInvalid, with: :render_invalid 
   def index
   users = User.all 
   render json: users
@@ -10,22 +10,23 @@ class UsersController < ApplicationController
     if user
       render json: user
     else
-      render json: { error: "Not authorized" }, status: :unauthorized
+      render json: { error: "user not in session" }, status: :unauthorized
     end
   end
 
   def create
-    user = User.create(user_params)
-    if user.valid? 
-      render json: user, status: :created
-    else
-      render json: {errors: user.errors.full_messages}, status: :unprocessable_entity 
-    end
+    user = User.create!(user_params)
+    session[:user_id] = user.id
+    render json: user, status: :created
   end 
 
   private
 
   def user_params
-    params.permit(:username)
+    params.permit(:username, :password, :password_confirmation)
   end
+
+  def render_invalid(invalid)
+  render json: {errors: invalid.record.errors.full_messages}, status: :unprocessable_entity 
+  end 
 end

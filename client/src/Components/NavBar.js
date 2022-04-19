@@ -1,63 +1,61 @@
-import React from 'react'
-import {NavLink} from "react-router-dom"
-import {Button} from "react-bootstrap"
+import React, {useEffect, useState} from "react";
+import { NavLink } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 
-function NavBar({onLogout}) {
-   function handleLogout() {
-     fetch("/logout", {
-       method: "DELETE",
-     }).then(() => onLogout(null));
-   }
+function NavBar({ onLogout, user }) {
+const [foodImage, setFoodImage] = useState({})
+console.log(foodImage)
+  useEffect(() => {
+    fetch("https://foodish-api.herokuapp.com/api/")
+      .then((response) => response.json())
+      .then((data) => setFoodImage(data));
+      
+  }, [user]);
 
-   const linkStyles = {
-     display: "inline-block",
-     width: "50px",
-     padding: "12px",
-     margin: "0 6px 6px",
-     background: "blue",
-     textDecoration: "none",
-     color: "white",
-   };
+  function handleLogout() {
+    fetch("/logout", {
+      method: "DELETE",
+    }).then(() => onLogout(null));
+  }
+
   return (
     <>
-      <p>Nav Bar</p>
-      <header>
-        <Button onClick={handleLogout}>Log out</Button>
-      </header>
       <div>
-        <NavLink
-          to="/"
-          exact
-          style={linkStyles}
-          activeStyle={{
-            background: "darkblue",
-          }}
-        >
-          Home
-        </NavLink>
-        <NavLink
-          to="meal_plans"
-          exact
-          style={linkStyles}
-          activeStyle={{
-            background: "darkblue",
-          }}
-        >
-          Meal Plans
-        </NavLink>
-        <NavLink
-          to="/add_recipe"
-          exact
-          style={linkStyles}
-          activeStyle={{
-            background: "darkblue",
-          }}
-        >
-          Add Recipe
-        </NavLink>
+        <Navbar bg="navBar">
+          <div className="nav-links">
+            <Button onClick={handleLogout}>Log out</Button>
+            <NavLink
+              className="nav-bar-link"
+              exact
+              activeClassName="active"
+              to="/"
+            >
+              Home
+            </NavLink>
+            <NavLink
+              className="nav-bar-link"
+              exact
+              activeClassName="active"
+              to="meal_plans"
+            >
+              Meal Plans
+            </NavLink>
+            <NavLink
+              className="nav-bar-link"
+              exact
+              activeClassName="active"
+              to="/add_recipe"
+            >
+              Add Recipe
+            </NavLink>
+              Hello {user?.username}, here's your foodspiration
+              <img src={foodImage.image}></img>
+          </div>
+        </Navbar>
       </div>
     </>
   );
 }
 
-export default NavBar
+export default NavBar;

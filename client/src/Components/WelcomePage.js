@@ -13,16 +13,19 @@ function WelcomePage({ onLogin }) {
       <Container>
         <div className="page-title">
           <Row>
-            <h1>Your Meal Planner</h1>
-          </Row>
-          <Row>
-            <h3>Log In or Sign Up to Get Started </h3>
+            <h1>Not Your Grandma's Meal Planner</h1>
           </Row>
         </div>
+        <Row>
+          <div className="page-subtitle">
+            <p>Log In or Sign Up to Get Started </p>
+          </div>
+        </Row>
+
         <Container className="loginsignupcardscontainer">
           <div className="vertical-center">
             <Row>
-              <Col >
+              <Col>
                 <Card
                   className="login-signup"
                   style={{ width: "18rem", height: "90%" }}
@@ -30,7 +33,7 @@ function WelcomePage({ onLogin }) {
                   <Login onLogin={onLogin} />
                 </Card>
               </Col>
-              <Col >
+              <Col>
                 <Card
                   className="login-signup"
                   style={{ width: "18rem", height: "90%" }}

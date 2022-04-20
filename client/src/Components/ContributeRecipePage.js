@@ -49,7 +49,7 @@ function ContributeRecipePage({ user, setRecipes }) {
   return (
     <div>
       <h2>Add a Recipe</h2>
-      <Form onSubmit={handleSubmit}>
+      <Form className="add-recipe-form" onSubmit={handleSubmit}>
         <Form.Group>
           <input
             placeholder="Recipe Title"
@@ -109,7 +109,7 @@ function ContributeRecipePage({ user, setRecipes }) {
           />
         </Form.Group>
         <Form.Group>
-          <Dropdown onSelect={(e) => handleSelect(e)}>
+          <Dropdown className= "add-recipe-dropdown" onSelect={(e) => handleSelect(e)}>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               Meal Type
             </Dropdown.Toggle>

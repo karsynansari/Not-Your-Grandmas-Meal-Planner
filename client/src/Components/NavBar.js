@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { Navbar } from "react-bootstrap";
 
-function NavBar({ onLogout, user }) {
+function NavBar({ onLogout, user, setUserMealPlans }) {
 const [foodImage, setFoodImage] = useState({})
 console.log(foodImage)
   useEffect(() => {
@@ -16,7 +16,10 @@ console.log(foodImage)
   function handleLogout() {
     fetch("/logout", {
       method: "DELETE",
-    }).then(() => onLogout(null));
+    }).then(() => {
+      onLogout(null)
+      setUserMealPlans([])
+      })
   }
 
   return (

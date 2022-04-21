@@ -23,7 +23,7 @@ function App() {
   return (
     <>
       {user == null ? (
-        <WelcomePage onLogin={setUser} />
+        <WelcomePage onLogin={setUser} setUserMealPlans={setUserMealPlans} />
       ) : (
         <Header
           user={user}

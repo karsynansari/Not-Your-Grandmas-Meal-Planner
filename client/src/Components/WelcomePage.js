@@ -7,7 +7,7 @@ import { Col } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 
 
-function WelcomePage({ onLogin }) {
+function WelcomePage({ onLogin, setUserMealPlans }) {
   return (
     <>
       <Container>
@@ -30,7 +30,10 @@ function WelcomePage({ onLogin }) {
                   className="login-signup"
                   style={{ width: "18rem", height: "90%" }}
                 >
-                  <Login onLogin={onLogin} />
+                  <Login
+                    onLogin={onLogin}
+                    setUserMealPlans={setUserMealPlans}
+                  />
                 </Card>
               </Col>
               <Col>

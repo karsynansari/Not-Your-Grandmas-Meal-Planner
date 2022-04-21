@@ -21,7 +21,7 @@ function Header({ user, onLogout, userMealPlans, setUserMealPlans }) {
 
   return (
     <>
-      <NavBar onLogout={onLogout} user={user} />
+      <NavBar onLogout={onLogout} user={user} setUserMealPlans={setUserMealPlans} />
       {recipeCardClicked ? (
         <RecipeModal
           setRecipeCardClicked={setRecipeCardClicked}

@@ -37,7 +37,6 @@ function MealPlanForm({ user, setUserMealPlans }) {
     <Container>
       <Form className="meal-plan-form"  onSubmit={handleSubmit}>
         <input
-          placeholder="hello"
           type="text"
           id="meal_plan"
           name="title"

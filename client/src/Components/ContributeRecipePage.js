@@ -51,8 +51,8 @@ function ContributeRecipePage({ user, setRecipes }) {
       <h2>Add a Recipe</h2>
       <Form className="add-recipe-form" onSubmit={handleSubmit}>
         <Form.Group>
+          <label>Recipe Title</label>
           <input
-            placeholder="Recipe Title"
             type="text"
             id="recipe_title"
             name="title"
@@ -61,8 +61,8 @@ function ContributeRecipePage({ user, setRecipes }) {
           />
         </Form.Group>
         <Form.Group>
+          <label>Cuisine Type</label>
           <input
-            placeholder="Cuisine"
             type="text"
             id="cuisine"
             name="cuisine"
@@ -71,8 +71,8 @@ function ContributeRecipePage({ user, setRecipes }) {
           />
         </Form.Group>
         <Form.Group>
+          <label>Servings</label>
           <input
-            placeholder="Servings"
             type="text"
             id="servings"
             name="serving"
@@ -81,8 +81,8 @@ function ContributeRecipePage({ user, setRecipes }) {
           />
         </Form.Group>
         <Form.Group>
+          <label>Prep Time</label>
           <input
-            placeholder="Prep time"
             type="text"
             id="prep-time"
             name="prep_time"
@@ -90,8 +90,8 @@ function ContributeRecipePage({ user, setRecipes }) {
             onChange={handleChange}
           />
         </Form.Group>
+        <label>Cook Time</label>
         <input
-          placeholder="Cook time"
           type="text"
           id="cook-time"
           name="cook_time"
@@ -99,8 +99,8 @@ function ContributeRecipePage({ user, setRecipes }) {
           onChange={handleChange}
         />
         <Form.Group>
+          <label>Recipe Photo</label>
           <input
-            placeholder="Recipe image"
             type="text"
             id="image"
             name="image"
@@ -109,7 +109,10 @@ function ContributeRecipePage({ user, setRecipes }) {
           />
         </Form.Group>
         <Form.Group>
-          <Dropdown className= "add-recipe-dropdown" onSelect={(e) => handleSelect(e)}>
+          <Dropdown
+            className="add-recipe-dropdown"
+            onSelect={(e) => handleSelect(e)}
+          >
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               Meal Type
             </Dropdown.Toggle>

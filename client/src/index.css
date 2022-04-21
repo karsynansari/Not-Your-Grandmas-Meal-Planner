@@ -297,14 +297,17 @@ h2 {
 /* add recipe page */
 
 .add-recipe-dropdown {
-  margin-top: 7px;
+  margin-top: 2px;
   margin-bottom: 12px; 
 }
 
 .add-recipe-form input {
- margin-bottom: 10px;
+ margin-bottom: 2px;
 }
 .add-recipe-form {
-
   background-color: #faf5e4; 
+  font-size: 12px;
+}
+input, label {
+    display:block;
 }

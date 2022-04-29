@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 
-function Login({ onLogin }) {
+function Login({ onLogin, setUserMealPlans }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -22,7 +22,10 @@ function Login({ onLogin }) {
       setUsername("");
       setPassword("");
       if (response.ok) {
-        response.json().then((user) => onLogin(user));
+        response.json().then((user) => { 
+          onLogin(user)
+        setUserMealPlans(user?.meal_plans)
+        });
       } else {
         response.json().then((theerror) => setError(theerror));
       }

@@ -41,8 +41,8 @@ export default function NewRecipeCard({
             </Dropdown.Toggle>
             <Dropdown.Menu>
               {userMealPlans?.map((mealPlan) => (
-                <Dropdown.Item key={Math.random()} eventKey={mealPlan.id}>
-                  {mealPlan.title}
+                <Dropdown.Item key={Math.random()} eventKey={mealPlan?.id}>
+                  {mealPlan?.title}
                 </Dropdown.Item>
               ))}
             </Dropdown.Menu>

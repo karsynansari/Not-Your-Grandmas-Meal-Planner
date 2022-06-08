@@ -34,7 +34,7 @@ console.log(foodImage)
               activeClassName="active"
               to="/"
             >
-              Home
+              Recipes
             </NavLink>
             <NavLink
               className="nav-bar-link"
@@ -42,7 +42,7 @@ console.log(foodImage)
               activeClassName="active"
               to="meal_plans"
             >
-              Meal Plans
+              Your Meal Plans
             </NavLink>
             <NavLink
               className="nav-bar-link"
